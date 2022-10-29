@@ -1,0 +1,15 @@
+{
+  "parser": "@babel/eslint-parser",
+  "extends": ["airbnb"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": "off",
+    "react/function-component-definition": "off",
+    "import/no-import-module-exports": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jasmine": true
+  }
+}
