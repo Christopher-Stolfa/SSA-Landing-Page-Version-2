@@ -17,6 +17,8 @@
     "start:live": "webpack serve --open --mode development --live-reload --hot",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
+    "storybook:dev": "npm run storybook -- --debug-webpack",
+    "storybook:prod": "npm run build-storybook -- --debug-webpack",
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
