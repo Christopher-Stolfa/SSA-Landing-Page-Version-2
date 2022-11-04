@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git+ssh://git@github.com/Christopher-Stolfa/SSA-Landing-Page-Version-2.git"
   },
-  "author": "Chribtoper <xcstolfax@gmail.com>",
+  "author": "Christopher Stolfa <xcstolfax@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
