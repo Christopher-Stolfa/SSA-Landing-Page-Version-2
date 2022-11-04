@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { Button } from './components/Buttons';
 /**
  * This is the root React component.
  *
@@ -13,6 +14,7 @@ const App = () => (
       <h1>Hello world</h1>
       <p>Have a wonderful day</p>
     </main>
+    <Button>click me</Button>
     <footer>The Footer</footer>
   </React.StrictMode>
 );
