@@ -3,8 +3,11 @@ import baseStyles from './Button.scss';
 
 interface Props {
   children?: ReactNode;
+  variant?: 'primary' | 'secondary' | 'tertiary';
 }
 
-const Button = ({ children }: Props) => <button className={baseStyles['root']}>{children}</button>;
+const Button = ({ children, variant = 'primary' }: Props) => (
+  <button className={baseStyles[variant]}>{children}</button>
+);
 
 export default Button;
