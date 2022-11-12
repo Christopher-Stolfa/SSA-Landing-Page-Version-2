@@ -1,7 +1,8 @@
 import React from 'react';
+import baseStyles from './index.scss';
 import { createRoot } from 'react-dom/client';
-import { Helmet } from 'react-helmet';
 import { Button } from './components/Buttons';
+import { Card } from './components/Cards';
 /**
  * This is the root React component.
  *
@@ -9,25 +10,19 @@ import { Button } from './components/Buttons';
  */
 
 const App = () => (
-  <>
-    <Helmet>
-      <link
-        href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Roboto+Condensed:400,700"
-        rel="stylesheet"
-        type="text/css"
+  <React.StrictMode>
+    <main className={baseStyles['root']}>
+      <Button variant="primary">primary</Button>
+      <Button variant="secondary">secondary</Button>
+      <Card
+        date="9/9/1999"
+        title="It's a Card!"
+        body="In this string is a body of text."
+        personName="John Doe"
+        label="Professuh"
       />
-    </Helmet>
-    <React.StrictMode>
-      <header>The Header</header>
-      <main>
-        <Button variant="primary">primary</Button>
-        <Button variant="secondary">secondary</Button>
-        <Button variant="tertiary">tertiary</Button>
-      </main>
-
-      <footer>The Footer</footer>
-    </React.StrictMode>
-  </>
+    </main>
+  </React.StrictMode>
 );
 
 const root = createRoot(document.getElementById('root'));
