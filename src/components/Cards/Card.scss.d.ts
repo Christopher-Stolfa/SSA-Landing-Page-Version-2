@@ -3,5 +3,5 @@
 interface CssExports {
 
 }
-declare const cssExports: CssExports;
+declare var cssExports: CssExports;
 export = cssExports;
