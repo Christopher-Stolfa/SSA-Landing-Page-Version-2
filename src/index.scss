@@ -7,3 +7,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2.25em;
+  line-height: 2.625em;
+  text-align: center;
+  letter-spacing: 0.07em;
+  color: #ffcc00;
+  text-shadow: 0px 0.25em 0.5em rgba(0, 0, 0, 0.25);
+}
