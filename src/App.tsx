@@ -1,7 +1,7 @@
 import React from 'react';
 import baseStyles from './index.scss';
 import { createRoot } from 'react-dom/client';
-import { Button } from './components/Buttons';
+import { Button, IconButton } from './components/Buttons';
 import { Card } from './components/Cards';
 /**
  * This is the root React component.
@@ -21,6 +21,7 @@ const App = () => (
         personName="John Doe"
         label="Professuh"
       />
+      <IconButton href="facebook.com" variant="facebook" />
     </main>
   </React.StrictMode>
 );
