@@ -58,6 +58,7 @@
     "@types/react-datepicker": "^4.4.2",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
+    "file-loader": "^6.2.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "process": "^0.11.10",

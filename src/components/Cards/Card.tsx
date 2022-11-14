@@ -1,6 +1,7 @@
 import React from 'react';
+import { Container } from '../Container';
 import baseStyles from './Card.scss';
-
+import defaultImg from '../../assets/placeholder-image.png';
 interface Props {
   title?: string;
   date?: string;
@@ -10,11 +11,11 @@ interface Props {
   src?: string;
 }
 
-const Card = ({ title, date, body, personName, label, src }: Props) => {
+const Card = ({ title, date, body, personName, label, src = defaultImg }: Props) => {
   return (
     <div className={baseStyles['root']}>
       <img src={src} />
-      <div className={baseStyles['content']}>
+      <Container>
         <span>{date}</span>
         <h2>{title}</h2>
         <p>{body}</p>
@@ -22,7 +23,7 @@ const Card = ({ title, date, body, personName, label, src }: Props) => {
           <b>{personName}</b>
         </h3>
         <p>{label}</p>
-      </div>
+      </Container>
     </div>
   );
 };
