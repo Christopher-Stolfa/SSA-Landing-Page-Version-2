@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import baseStyles from './Button.scss';
+import styles from './Button.module.scss';
 
 interface Props {
   children?: ReactNode;
@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Button = ({ children, variant = 'primary' }: Props) => (
-  <button className={baseStyles[variant]}>{children}</button>
+  <button className={styles[variant]}>{children}</button>
 );
 
 export default Button;

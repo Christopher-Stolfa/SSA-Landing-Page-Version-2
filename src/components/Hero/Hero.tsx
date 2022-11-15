@@ -1,10 +1,11 @@
-import classes from './hero.module.scss';
+import React from 'react';
 
-export interface HeroProps {}
+// export interface HeroProps {
 
-export const Hero = (props: HeroProps) => {
-	
-	return (
-		<div></div>
-	);
+// }
+
+const Hero = () => {
+  return <div>Im a hero</div>;
 };
+
+export default Hero;

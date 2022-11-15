@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container } from '../Container';
-import baseStyles from './Card.scss';
+import styles from './Card.module.scss';
 import { placeholderImg } from '../../assets';
+import { Image } from '../Image';
 interface Props {
   title?: string;
   date?: string;
@@ -11,10 +12,19 @@ interface Props {
   src?: string;
 }
 
-const Card = ({ title, date, body, personName, label, src = placeholderImg }: Props) => {
+const defaultAlt = 'Card Image';
+
+const Card = ({
+  title,
+  date,
+  body,
+  personName,
+  label,
+  src = placeholderImg,
+}: Props) => {
   return (
-    <div className={baseStyles['root']}>
-      <img src={src} />
+    <div className={styles['root']}>
+      <Image src={src} alt={personName || title || defaultAlt} />
       <Container>
         <span>{date}</span>
         <h2>{title}</h2>
