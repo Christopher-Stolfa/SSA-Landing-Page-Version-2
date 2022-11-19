@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react';
 import styles from './Button.module.scss';
 
-interface Props {
+export interface IButtonProps {
   children?: ReactNode;
-  variant?: 'primary' | 'secondary' | 'tertiary';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'cream' | 'cream-invert';
 }
 
-const Button = ({ children, variant = 'primary' }: Props) => (
+const Button = ({ children, variant = 'primary' }: IButtonProps) => (
   <button className={styles[variant]}>{children}</button>
 );
 
