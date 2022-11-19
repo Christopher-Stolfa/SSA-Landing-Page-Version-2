@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './App.module.scss';
 import { Button, IconButton } from './components/Buttons';
 import { Card } from './components/Cards';
 import { ToggleButton } from './components/Toggle';
@@ -9,7 +10,7 @@ import { ToggleButton } from './components/Toggle';
  */
 
 const App = () => (
-  <>
+  <div className={styles['root']}>
     <ToggleButton active={true}>left toggle</ToggleButton>
     <ToggleButton active={false}>right toggle</ToggleButton>
 
@@ -24,7 +25,7 @@ const App = () => (
       label="Professuh"
     />
     <IconButton href="facebook.com" variant="facebook" />
-  </>
+  </div>
 );
 
 export default App;
