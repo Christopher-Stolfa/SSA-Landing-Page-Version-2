@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './App.module.scss';
 import { Button, IconButton } from './components/Buttons';
 import { Card } from './components/Cards';
-import { ToggleButton } from './components/Toggle';
 import { Hero } from './components/Hero';
 import Tabs from './components/Tabs/Tabs';
 import { Tab, TabList, TabPanel, TabPanels } from './components/Tabs';
@@ -20,6 +19,16 @@ const App = () => (
     <div>
       <Tabs>
         <TabList>
+          <Tab>One apple</Tab>
+          <Tab>Two apple</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>Tab Panel: Apple One</TabPanel>
+          <TabPanel>Tab Panel: Apple Two</TabPanel>
+        </TabPanels>
+      </Tabs>
+      <Tabs>
+        <TabList>
           <Tab>One</Tab>
           <Tab>Two</Tab>
           <Tab>Three</Tab>
@@ -31,8 +40,6 @@ const App = () => (
         </TabPanels>
       </Tabs>
     </div>
-    <ToggleButton active={true}>left toggle</ToggleButton>
-    <ToggleButton active={false}>right toggle</ToggleButton>
 
     <Button variant="primary">primary</Button>
     <Button variant="secondary">secondary</Button>

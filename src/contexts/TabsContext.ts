@@ -1,7 +1,7 @@
-import React, { createContext } from 'react';
+import React, { createContext, Dispatch } from 'react';
 
-interface ITabsContextType {
-  setTab: React.Dispatch<React.SetStateAction<number>>;
+export interface ITabsContextType {
+  setTab: Dispatch<React.SetStateAction<number>>;
   activeTab: number;
 }
 
