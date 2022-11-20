@@ -4,6 +4,8 @@ import { Button, IconButton } from './components/Buttons';
 import { Card } from './components/Cards';
 import { ToggleButton } from './components/Toggle';
 import { Hero } from './components/Hero';
+import Tabs from './components/Tabs/Tabs';
+import { Tab, TabList } from './components/Tabs';
 /**
  * This is the root React component.
  *
@@ -15,7 +17,15 @@ const App = () => (
     <div>
       <Hero />
     </div>
-
+    <div>
+      <Tabs>
+        <TabList>
+          <Tab>One</Tab>
+          <Tab>Two</Tab>
+          <Tab>Three</Tab>
+        </TabList>
+      </Tabs>
+    </div>
     <ToggleButton active={true}>left toggle</ToggleButton>
     <ToggleButton active={false}>right toggle</ToggleButton>
 
