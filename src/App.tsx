@@ -3,6 +3,7 @@ import styles from './App.module.scss';
 import { Button, IconButton } from './components/Buttons';
 import { Card } from './components/Cards';
 import { ToggleButton } from './components/Toggle';
+import { Hero } from './components/Hero';
 /**
  * This is the root React component.
  *
@@ -11,6 +12,10 @@ import { ToggleButton } from './components/Toggle';
 
 const App = () => (
   <div className={styles['root']}>
+    <div>
+      <Hero />
+    </div>
+
     <ToggleButton active={true}>left toggle</ToggleButton>
     <ToggleButton active={false}>right toggle</ToggleButton>
 
