@@ -6,8 +6,8 @@ interface IToggleButtonProps extends IButtonProps {
   active: boolean;
 }
 
-const ToggleButton = ({ active, children }: IToggleButtonProps) => (
-  <Button variant={active ? 'cream-invert' : 'cream'}>
+const ToggleButton = ({ active, children, className }: IToggleButtonProps) => (
+  <Button className={className} variant={active ? 'cream-invert' : 'cream'}>
     {children}:{active}
   </Button>
 );

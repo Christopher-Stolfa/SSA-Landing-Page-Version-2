@@ -28,6 +28,14 @@ html body {
   overflow-y: inherit;
 }
 
+ul,
+ol,
+li {
+  margin: auto;
+  padding: 0;
+  list-style-type: none;
+}
+
 h1,
 h2,
 h3,

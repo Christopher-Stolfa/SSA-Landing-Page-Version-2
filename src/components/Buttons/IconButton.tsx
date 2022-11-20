@@ -2,7 +2,7 @@ import React from 'react';
 import { facebook, instagram, linkedin, twitter, youtube } from '../../assets/socialMedia';
 import { mail } from '../../assets/svgs';
 
-type IconVariant = 'facebook' | 'instagram' | 'linkedin' | 'mail' | 'twitter' | 'youtube';
+export type TIconVariant = 'facebook' | 'instagram' | 'linkedin' | 'mail' | 'twitter' | 'youtube';
 
 const iconVariants = {
   facebook: facebook,
@@ -12,14 +12,14 @@ const iconVariants = {
   youtube: youtube,
   mail: mail,
 };
-interface Props {
+export interface IIconButtonProps {
   href: string;
-  variant: IconVariant;
+  variant: TIconVariant;
 }
 
-const IconButton = ({ href, variant }: Props) => {
+const IconButton = ({ href, variant }: IIconButtonProps) => {
   return (
-    <a href={href}>
+    <a target="_blank" rel="noreferrer" href={href}>
       <img alt={variant} src={iconVariants[variant]} />
     </a>
   );
