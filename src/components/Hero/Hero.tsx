@@ -7,12 +7,12 @@ const Hero = () => {
   return (
     <>
       <div className={styles['root']}>
-        <Container>
+        <Container className={styles['container']}>
           <h1 className={styles['h1']}>
             <span className={styles['color-yellow']}>NEW YORK CITY&apos;S</span> FLAGSHIP PUBLIC
             SCHOOL FOR <span className={styles['color-yellow']}>ARCHITECTURE</span>
           </h1>
-          <p>
+          <p className={styles['quote']}>
             Creating a just, sustainable, and imaginative future. Come to dream, design, and build
             at City.
           </p>
