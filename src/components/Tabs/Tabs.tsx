@@ -8,8 +8,8 @@ export interface ITabs {
 const Tabs = ({ children }: ITabs) => {
   const [activeTab, setTab] = useState(0);
   useEffect(() => {
-    console.log(children);
-  }, []);
+    console.log(activeTab);
+  }, [activeTab]);
   return (
     <>
       <TabsProvider value={{ activeTab, setTab }}>{children}</TabsProvider>
