@@ -5,10 +5,13 @@ export interface IButtonProps {
   children?: ReactNode;
   variant?: 'primary' | 'secondary' | 'tertiary' | 'cream' | 'cream-invert';
   className?: string;
+  onClick?: () => void;
 }
 
-const Button = ({ children, variant = 'primary', className }: IButtonProps) => (
-  <button className={`${styles[variant]} ${className}`}>{children}</button>
+const Button = ({ children, variant = 'primary', className, onClick }: IButtonProps) => (
+  <button onClick={onClick} className={`${styles[variant]} ${className}`}>
+    {children}
+  </button>
 );
 
 export default Button;
