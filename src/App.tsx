@@ -5,6 +5,7 @@ import { Card } from './components/Cards';
 import { Hero } from './components/Hero';
 import Tabs from './components/Tabs/Tabs';
 import { Tab, TabList, TabPanel, TabPanels } from './components/Tabs';
+import { CreativeSpaces } from './sections';
 /**
  * This is the root React component.
  *
@@ -16,30 +17,7 @@ const App = () => (
     <div>
       <Hero />
     </div>
-    <div>
-      <Tabs>
-        <TabList>
-          <Tab id={0}>One apple</Tab>
-          <Tab id={1}>Two apple</Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel id={0}>Tab Panel: Apple One</TabPanel>
-          <TabPanel id={1}>Tab Panel: Apple Two</TabPanel>
-        </TabPanels>
-      </Tabs>
-      <Tabs>
-        <TabList>
-          <Tab id={0}>One banana</Tab>
-          <Tab id={1}>Two banana</Tab>
-          <Tab id={2}>Two banana</Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel id={0}>Tab Panel: banana One</TabPanel>
-          <TabPanel id={1}>Tab Panel: banana Two</TabPanel>
-          <TabPanel id={2}>Tab Panel: banana Three</TabPanel>
-        </TabPanels>
-      </Tabs>
-    </div>
+    <CreativeSpaces />
 
     <Button variant="primary">primary</Button>
     <Button variant="secondary">secondary</Button>

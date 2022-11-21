@@ -1,6 +1,6 @@
 import React, { ReactNode, useContext } from 'react';
+import styles from './Tab.module.scss';
 import { TabsContext } from '../../../contexts/TabsContext';
-import { Button } from '../../Buttons';
 
 export interface ITab {
   id: number;
@@ -10,11 +10,17 @@ export interface ITab {
 const Tab = ({ id, children }: ITab) => {
   const { activeTab, setTab } = useContext(TabsContext);
 
+  const isActive = id === activeTab;
+
   const onClick = () => {
     setTab(id);
   };
 
-  return <Button onClick={onClick}>{children}</Button>;
+  return (
+    <button aria-selected={isActive} className={styles['root']} role="tab" onClick={onClick}>
+      {children}
+    </button>
+  );
 };
 
 export default Tab;

@@ -1,0 +1,35 @@
+.root {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 60px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 32px;
+  padding-bottom: 70px;
+  padding-left: 32px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1280px;
+  min-width: 320px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.tabs-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1280px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 2rem;
+}
