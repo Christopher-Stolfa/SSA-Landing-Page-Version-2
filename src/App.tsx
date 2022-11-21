@@ -19,24 +19,24 @@ const App = () => (
     <div>
       <Tabs>
         <TabList>
-          <Tab>One apple</Tab>
-          <Tab>Two apple</Tab>
+          <Tab id={0}>One apple</Tab>
+          <Tab id={1}>Two apple</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>Tab Panel: Apple One</TabPanel>
-          <TabPanel>Tab Panel: Apple Two</TabPanel>
+          <TabPanel id={0}>Tab Panel: Apple One</TabPanel>
+          <TabPanel id={1}>Tab Panel: Apple Two</TabPanel>
         </TabPanels>
       </Tabs>
       <Tabs>
         <TabList>
-          <Tab>One</Tab>
-          <Tab>Two</Tab>
-          <Tab>Three</Tab>
+          <Tab id={0}>One banana</Tab>
+          <Tab id={1}>Two banana</Tab>
+          <Tab id={2}>Two banana</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>Tab Panel One</TabPanel>
-          <TabPanel>Tab Panel Two</TabPanel>
-          <TabPanel>Tab Panel Three</TabPanel>
+          <TabPanel id={0}>Tab Panel: banana One</TabPanel>
+          <TabPanel id={1}>Tab Panel: banana Two</TabPanel>
+          <TabPanel id={2}>Tab Panel: banana Three</TabPanel>
         </TabPanels>
       </Tabs>
     </div>
