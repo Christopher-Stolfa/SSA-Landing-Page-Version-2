@@ -3,7 +3,7 @@ import styles from './Button.module.scss';
 
 export interface IButtonProps {
   children?: ReactNode;
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'cream' | 'cream-invert';
+  variant?: 'primary' | 'secondary' | 'tertiary';
   className?: string;
   onClick?: () => void;
 }
