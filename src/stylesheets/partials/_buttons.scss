@@ -1,9 +1,2 @@
-.button-grow {
-  background-color: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.button-grow:hover {
-  transform: scale(1.1);
-}
+@use './../modules/colors';
+@use './../modules/vars';
