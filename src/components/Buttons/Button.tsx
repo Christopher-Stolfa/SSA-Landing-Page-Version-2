@@ -1,13 +1,14 @@
 import React, { ReactNode } from 'react';
-import baseStyles from './Button.scss';
+import styles from './Button.module.scss';
 
-interface Props {
+export interface IButtonProps {
   children?: ReactNode;
-  variant?: 'primary' | 'secondary' | 'tertiary';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'cream' | 'cream-invert';
+  className?: string;
 }
 
-const Button = ({ children, variant = 'primary' }: Props) => (
-  <button className={baseStyles[variant]}>{children}</button>
+const Button = ({ children, variant = 'primary', className }: IButtonProps) => (
+  <button className={`${styles[variant]} ${className}`}>{children}</button>
 );
 
 export default Button;
