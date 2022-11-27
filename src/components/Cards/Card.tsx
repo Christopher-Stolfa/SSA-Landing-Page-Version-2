@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from '../Container';
 import styles from './Card.module.scss';
 import { placeholderImg } from '../../assets';
 import { Image } from '../Image';
@@ -14,18 +13,11 @@ interface Props {
 
 const defaultAlt = 'Card Image';
 
-const Card = ({
-  title,
-  date,
-  body,
-  personName,
-  label,
-  src = placeholderImg,
-}: Props) => {
+const Card = ({ title, date, body, personName, label, src = placeholderImg }: Props) => {
   return (
     <div className={styles['root']}>
       <Image src={src} alt={personName || title || defaultAlt} />
-      <Container>
+      <div className={styles['content']}>
         <span>{date}</span>
         <h2>{title}</h2>
         <p>{body}</p>
@@ -33,7 +25,7 @@ const Card = ({
           <b>{personName}</b>
         </h3>
         <p>{label}</p>
-      </Container>
+      </div>
     </div>
   );
 };
