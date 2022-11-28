@@ -43,41 +43,43 @@ const CreativeSpaces = () => (
     <div className={styles['container']}>
       <Header as="h2">CREATIVE SPACES</Header>
       <Tabs className={styles['tabs-container']}>
-        <TabList>
-          {defaultData.map(({ title }, i) => (
-            <Tab key={uniqueId(title)} id={i}>
-              {title}
-            </Tab>
-          ))}
-        </TabList>
-        <TabPanels>
-          {defaultData.map(({ title, link, altText, description }, i) => (
-            <TabPanel key={uniqueId(title)} id={i}>
-              <Img
-                lazy
-                cache
-                src={link}
-                placeholder={placeholderImg}
-                alt={altText}
-                sizes="(max-width: 648px) 100vw, 648px"
-                width="100%"
-                height="auto"
-              />
-              <div className={styles['content']}>
-                <Header as="h3">{title}</Header>
-                <p>{description}</p>
-              </div>
-            </TabPanel>
-          ))}
-        </TabPanels>
-      </Tabs>
-      <div className={styles['info']}>
-        <p>Join us for our scheduled info sessions</p>
-        <div>
-          <Button className={styles['btn']}>Undergraduate</Button>
-          <Button className={styles['btn']}>Graduate</Button>
+        <div className={styles['tabs-flex']}>
+          <TabList className={styles['tablist']}>
+            {defaultData.map(({ title }, i) => (
+              <Tab key={uniqueId(title)} id={i}>
+                {title}
+              </Tab>
+            ))}
+          </TabList>
+          <TabPanels>
+            {defaultData.map(({ title, link, altText, description }, i) => (
+              <TabPanel key={uniqueId(title)} id={i}>
+                <Img
+                  lazy
+                  cache
+                  src={link}
+                  placeholder={placeholderImg}
+                  alt={altText}
+                  sizes="(max-width: 648px) 100vw, 648px"
+                  width="100%"
+                  height="auto"
+                />
+                <div className={styles['content']}>
+                  <Header as="h3">{title}</Header>
+                  <p>{description}</p>
+                </div>
+              </TabPanel>
+            ))}
+          </TabPanels>
         </div>
-      </div>
+        <div className={styles['info']}>
+          <p>Join us for our scheduled info sessions</p>
+          <div className={styles['btn-group']}>
+            <Button className={styles['btn']}>Undergraduate</Button>
+            <Button className={styles['btn']}>Graduate</Button>
+          </div>
+        </div>
+      </Tabs>
     </div>
   </Container>
 );

@@ -3,11 +3,14 @@ import styles from './TabList.module.scss';
 
 export interface ITabList {
   children: ReactNode;
+  className?: string;
 }
 
-const TabList = ({ children }: ITabList) => (
-  <div className={styles['root']} role="tablist">
-    {children}
+const TabList = ({ children, className }: ITabList) => (
+  <div className={className}>
+    <div className={styles['root']} role="tablist">
+      {children}
+    </div>
   </div>
 );
 
