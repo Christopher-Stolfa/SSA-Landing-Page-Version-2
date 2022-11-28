@@ -20,7 +20,7 @@
   background-color: $color_2;
   transition: vars.$transition;
   &:hover {
-    transform: translate(0px, -2px);
+    transform: vars.$transform;
   }
 }
 
