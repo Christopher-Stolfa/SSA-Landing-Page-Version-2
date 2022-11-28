@@ -51,24 +51,32 @@ const CreativeSpaces = () => (
               </Tab>
             ))}
           </TabList>
+
           <TabPanels>
             {defaultData.map(({ title, link, altText, description }, i) => (
-              <TabPanel key={uniqueId(title)} id={i}>
-                <Img
-                  lazy
-                  cache
-                  src={link}
-                  placeholder={placeholderImg}
-                  alt={altText}
-                  sizes="(max-width: 648px) 100vw, 648px"
-                  width="100%"
-                  height="auto"
-                />
-                <div className={styles['content']}>
-                  <Header as="h3">{title}</Header>
-                  <p>{description}</p>
-                </div>
-              </TabPanel>
+              <>
+                <TabPanel key={uniqueId(title)} id={i}>
+                  <span className={styles['small-screen-header']}>
+                    <Header as="h3">{title}</Header>
+                  </span>
+                  <Img
+                    lazy
+                    cache
+                    src={link}
+                    placeholder={placeholderImg}
+                    alt={altText}
+                    sizes="(max-width: 648px) 100vw, 648px"
+                    width="100%"
+                    height="auto"
+                  />
+                  <div className={styles['content']}>
+                    <span className={styles['large-screen-header']}>
+                      <Header as="h3">{title}</Header>
+                    </span>
+                    <p>{description}</p>
+                  </div>
+                </TabPanel>
+              </>
             ))}
           </TabPanels>
         </div>
