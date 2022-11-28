@@ -6,12 +6,13 @@ export interface IButtonProps {
   variant?: 'primary' | 'secondary' | 'tertiary';
   className?: string;
   onClick?: () => void;
+  href?: string;
 }
 
-const Button = ({ children, variant = 'primary', className, onClick }: IButtonProps) => (
-  <button onClick={onClick} className={`${styles[variant]} ${className}`}>
+const Button = ({ children, variant = 'primary', className, onClick, href }: IButtonProps) => (
+  <a href={href} onClick={onClick} className={`${styles[variant]} ${className}`}>
     {children}
-  </button>
+  </a>
 );
 
 export default Button;
