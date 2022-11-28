@@ -2,12 +2,12 @@
 
 .root {
   font-family: Roboto;
+  text-align: left;
   font-size: 18px;
   font-weight: 700;
   line-height: 27px;
   color: colors.$black;
   background-color: transparent;
-  min-width: 15rem;
   padding-left: 8px;
   border: 1px none #000;
   -webkit-transition: -webkit-transform 200ms ease;
