@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from '../Buttons';
 import IconButton, { IIconButtonProps } from '../Buttons/IconButton';
-import { Container } from '../Container';
 import { uniqueId } from 'lodash';
 import styles from './Hero.module.scss';
 
@@ -32,7 +31,7 @@ const Hero = () => {
   return (
     <>
       <div className={styles['root']}>
-        <Container className={styles['container']}>
+        <div className={styles['container']}>
           <h1 className={styles['h1']}>
             <span className={styles['color-yellow']}>NEW YORK CITY&apos;S</span> FLAGSHIP PUBLIC
             SCHOOL FOR <span className={styles['color-yellow']}>ARCHITECTURE</span>
@@ -47,14 +46,14 @@ const Hero = () => {
           <Button className={styles['btn']} variant="secondary">
             VIEW STUDENT WORK
           </Button>
-          <Container className={styles['btn-container']}>
+          <div className={styles['btn-container']}>
             <Button className={styles['btn-smalltext']} variant="primary">
               UNDERGRADUATE
             </Button>
             <Button className={styles['btn-smalltext']} variant="primary">
               GRADUATE
             </Button>
-          </Container>
+          </div>
           <a className={styles['info']}>Request Information</a>
           <ul className={styles['btn-social-list']}>
             {socialMedia.map((socialProps: IIconButtonProps) => (
@@ -63,7 +62,7 @@ const Hero = () => {
               </li>
             ))}
           </ul>
-        </Container>
+        </div>
       </div>
     </>
   );

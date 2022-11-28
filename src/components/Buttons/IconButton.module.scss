@@ -1,0 +1,8 @@
+@use '../../stylesheets/modules/vars';
+
+.root {
+  transition: vars.$transition;
+  &:hover {
+    transform: vars.$transform;
+  }
+}

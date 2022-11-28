@@ -5,7 +5,8 @@
     "semi": ["error", "always"],
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/prefer-optional-chain": "error",
-    "@typescript-eslint/no-empty-interface": "off"
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-empty-function": "off"
   },
   "env": {
     "browser": true,

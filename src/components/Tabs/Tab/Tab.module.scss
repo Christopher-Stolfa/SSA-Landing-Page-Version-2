@@ -1,0 +1,34 @@
+@use '../../../stylesheets/modules/colors';
+
+.root {
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  color: colors.$black;
+  background-color: transparent;
+  min-width: 15rem;
+  padding-left: 8px;
+  border: 1px none #000;
+  -webkit-transition: -webkit-transform 200ms ease;
+  transition: -webkit-transform 200ms ease;
+  transition: transform 200ms ease;
+  transition: transform 200ms ease, -webkit-transform 200ms ease;
+  font-family: 'Roboto Condensed';
+  color: #000;
+  font-size: 18px;
+  line-height: 32px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: inset 4px 0 0 0 #000;
+    -webkit-transform: translate(6px, 0px);
+    -ms-transform: translate(6px, 0px);
+    transform: translate(6px, 0px);
+  }
+
+  &[aria-selected='true'] {
+    background-color: colors.$black;
+    color: colors.$white;
+  }
+}

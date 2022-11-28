@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './IconButton.module.scss';
 import { facebook, instagram, linkedin, twitter, youtube } from '../../assets/socialMedia';
 import { mail } from '../../assets/svgs';
 
@@ -15,12 +16,13 @@ const iconVariants = {
 export interface IIconButtonProps {
   href: string;
   variant: TIconVariant;
+  className?: string;
 }
 
-const IconButton = ({ href, variant }: IIconButtonProps) => {
+const IconButton = ({ href, variant, className }: IIconButtonProps) => {
   return (
     <a target="_blank" rel="noreferrer" href={href}>
-      <img alt={variant} src={iconVariants[variant]} />
+      <img className={`${styles['root']} ${className}`} alt={variant} src={iconVariants[variant]} />
     </a>
   );
 };
