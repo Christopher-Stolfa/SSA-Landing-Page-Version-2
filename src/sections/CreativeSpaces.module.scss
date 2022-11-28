@@ -78,7 +78,10 @@
     display: none;
   }
   .small-screen-header {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   .large-screen-header {
     display: none;

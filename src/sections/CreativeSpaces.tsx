@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CreativeSpaces.module.scss';
 import indexStyles from './index.module.scss';
-import { Tab, TabList, TabPanel, TabPanels } from '../components/Tabs';
+import { Tab, TabArrows, TabList, TabPanel, TabPanels } from '../components/Tabs';
 import Tabs from '../components/Tabs/Tabs';
 import { Container } from '../components/Container';
 import { Header } from '../components/Headers';
@@ -51,32 +51,30 @@ const CreativeSpaces = () => (
               </Tab>
             ))}
           </TabList>
-
           <TabPanels>
             {defaultData.map(({ title, link, altText, description }, i) => (
-              <>
-                <TabPanel key={uniqueId(title)} id={i}>
-                  <span className={styles['small-screen-header']}>
+              <TabPanel key={uniqueId(title)} id={i}>
+                <span className={styles['small-screen-header']}>
+                  <Header as="h3">{title}</Header>
+                  <TabArrows size={defaultData.length} />
+                </span>
+                <Img
+                  lazy
+                  cache
+                  src={link}
+                  placeholder={placeholderImg}
+                  alt={altText}
+                  sizes="(max-width: 648px) 100vw, 648px"
+                  width="100%"
+                  height="auto"
+                />
+                <div className={styles['content']}>
+                  <span className={styles['large-screen-header']}>
                     <Header as="h3">{title}</Header>
                   </span>
-                  <Img
-                    lazy
-                    cache
-                    src={link}
-                    placeholder={placeholderImg}
-                    alt={altText}
-                    sizes="(max-width: 648px) 100vw, 648px"
-                    width="100%"
-                    height="auto"
-                  />
-                  <div className={styles['content']}>
-                    <span className={styles['large-screen-header']}>
-                      <Header as="h3">{title}</Header>
-                    </span>
-                    <p>{description}</p>
-                  </div>
-                </TabPanel>
-              </>
+                  <p>{description}</p>
+                </div>
+              </TabPanel>
             ))}
           </TabPanels>
         </div>
