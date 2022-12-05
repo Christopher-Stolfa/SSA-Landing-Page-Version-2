@@ -1,5 +1,4 @@
 import { gql } from '@apollo/client';
-import { GraphQLInterfaceType } from 'graphql';
 
 type TImage = {
   link?: string;

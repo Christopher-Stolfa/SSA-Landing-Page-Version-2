@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import styles from './CreativeSpaces.module.scss';
-import indexStyles from './index.module.scss';
 import { Tab, TabArrows, TabList, TabPanel, TabPanels } from '../components/Tabs';
 import Tabs from '../components/Tabs/Tabs';
 import { Container } from '../components/Container';

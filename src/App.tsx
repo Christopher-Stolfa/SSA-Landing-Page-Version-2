@@ -3,8 +3,6 @@ import styles from './App.module.scss';
 import { Button, IconButton } from './components/Buttons';
 import { Card } from './components/Cards';
 import { Hero } from './components/Hero';
-import Tabs from './components/Tabs/Tabs';
-import { Tab, TabList, TabPanel, TabPanels } from './components/Tabs';
 import { CreativeSpaces } from './sections';
 import GET_PAGE_DATA, { IPageData } from './data/get-data';
 import { useQuery } from '@apollo/client';
