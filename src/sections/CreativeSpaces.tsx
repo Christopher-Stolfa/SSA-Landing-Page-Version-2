@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './CreativeSpaces.module.scss';
 import indexStyles from './index.module.scss';
 import { Tab, TabArrows, TabList, TabPanel, TabPanels } from '../components/Tabs';
@@ -9,20 +9,17 @@ import { uniqueId } from 'lodash';
 import Img from 'react-cool-img';
 import { placeholderImg } from '../assets';
 import { Button } from '../components/Buttons';
-import GET_CREATIVE_SPACES, { ICreativeSpacesData } from '../data/get-creative-spaces';
-import { useQuery } from '@apollo/client';
 import { regexStripHtml } from '../utils';
+import { PageDataContext } from '../contexts/PageDataContext';
 
 /**
  * Creative Spaces section with tablist content
  * @component
  */
 const CreativeSpaces = () => {
-  const { data, loading, error } = useQuery<ICreativeSpacesData>(GET_CREATIVE_SPACES);
-
-  React.useEffect(() => {
-    console.log(data);
-  }, [data]);
+  const {
+    pageData: { page },
+  } = useContext(PageDataContext);
 
   return (
     <Container>
@@ -31,26 +28,26 @@ const CreativeSpaces = () => {
         <Tabs className={styles['tabs-container']}>
           <div className={styles['tabs-flex']}>
             <TabList className={styles['tablist']}>
-              {data?.page?.landingPage?.creativespaces?.map(({ title }, i) => (
+              {page?.landingPage?.creativeSpaces?.map(({ title }, i) => (
                 <Tab key={uniqueId(title)} id={i}>
                   {title}
                 </Tab>
               ))}
             </TabList>
             <TabPanels>
-              {data?.page?.landingPage?.creativespaces?.map(
-                ({ title, link, altText, description }, i) => (
+              {page?.landingPage?.creativeSpaces?.map(
+                ({ title, description, image, moreInfoUrl, schedule }, i) => (
                   <TabPanel key={uniqueId(title)} id={i}>
                     <span className={styles['small-screen-header']}>
                       <Header as="h3">{title}</Header>
-                      <TabArrows size={data?.page?.landingPage?.creativespaces?.length} />
+                      <TabArrows size={page?.landingPage?.creativeSpaces?.length || 0} />
                     </span>
                     <Img
                       lazy
                       cache
-                      src={link}
+                      src={image?.link}
                       placeholder={placeholderImg}
-                      alt={altText}
+                      alt={image?.altText}
                       sizes="(max-width: 648px) 100vw, 648px"
                       width="100%"
                       height="auto"
