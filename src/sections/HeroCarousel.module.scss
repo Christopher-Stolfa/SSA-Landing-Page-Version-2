@@ -1,14 +1,19 @@
-@use '../../stylesheets/modules/colors';
+@use '../stylesheets/modules/colors';
 
-.root {
-  max-width: 500px;
-  margin: auto;
+.flex {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+}
+
+.hero {
   background: #000;
   color: white;
 }
 .info,
 .quote,
-.h1 {
+.h1-small,
+.h1-large {
   text-align: center;
   font-family: 'Roboto';
   font-style: normal;
@@ -32,14 +37,33 @@
   text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
 }
 
-.h1 {
+.h1-small,
+.h1-large {
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  color: white;
   font-family: 'Roboto Condensed';
   font-weight: 500;
+  letter-spacing: 0.07em;
+  text-align: center;
+}
+
+.h1-small-wrap {
+  display: none;
+  align-self: center;
+  min-width: 353px;
+  padding: 1.5rem;
+}
+
+.h1-small {
+  display: none;
+  font-size: 19px;
+  line-height: 22px;
+}
+
+.h1-large {
+  display: none;
   font-size: 33px;
   line-height: 42px;
-  letter-spacing: 0.07em;
-  color: white;
-  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 .color-yellow {
@@ -86,8 +110,55 @@
   width: 100%;
 }
 
+.img {
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
 @media screen and (max-width: 400px) {
   .btn-container {
     flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .h1-large {
+    display: block;
+  }
+  .h1-small {
+    display: none;
+  }
+  .h1-small-wrap {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .flex {
+    flex-direction: column-reverse;
+  }
+  .h1-large {
+    display: none;
+  }
+  .h1-small {
+    display: block;
+  }
+  .h1-small-wrap {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .container {
+    max-width: 500px;
   }
 }
