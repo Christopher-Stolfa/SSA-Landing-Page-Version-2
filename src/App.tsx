@@ -2,8 +2,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import styles from './App.module.scss';
 import { Button, IconButton } from './components/Buttons';
 import { Card } from './components/Cards';
-import { Hero } from './components/Hero';
-import { CreativeSpaces } from './sections';
+import { CreativeSpaces, HeroCarousel } from './sections';
 import GET_PAGE_DATA, { IPageData } from './data/get-data';
 import { useQuery } from '@apollo/client';
 import { PageDataProvider } from './contexts/PageDataContext';
@@ -24,9 +23,7 @@ const App = () => {
   return (
     <PageDataProvider value={{ pageData }}>
       <div className={styles['root']}>
-        <div>
-          <Hero />
-        </div>
+        <HeroCarousel />
         <CreativeSpaces />
 
         <Button variant="primary">primary</Button>
