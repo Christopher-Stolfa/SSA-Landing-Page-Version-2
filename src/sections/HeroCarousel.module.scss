@@ -70,6 +70,14 @@
   color: colors.$yellow;
 }
 
+.btn-smalltext:hover {
+  border: 1px none #000;
+  background-color: #fc0;
+  box-shadow: 0 4px 16px -2px rgb(255 204 0 / 25%);
+  transform: translate(0px, -2px);
+  outline: 0;
+}
+
 .btn,
 .btn-smalltext {
   width: 100%;
