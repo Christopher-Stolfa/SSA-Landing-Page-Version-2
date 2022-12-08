@@ -10,7 +10,12 @@ export interface IButtonProps {
 }
 
 const Button = ({ children, variant = 'primary', className, onClick, href }: IButtonProps) => (
-  <a href={href} onClick={onClick} className={`${styles[variant]} ${className}`}>
+  <a
+    target="_blank"
+    rel="noreferrer"
+    href={href}
+    onClick={onClick}
+    className={`${styles[variant]} ${className}`}>
     {children}
   </a>
 );

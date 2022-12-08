@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './App.module.scss';
 import { Button, IconButton } from './components/Buttons';
 import { Card } from './components/Cards';
-import { CreativeSpaces, HeroCarousel } from './sections';
+import { CreativeSpaces, HeroCarousel, Jedi } from './sections';
 
 /**
  * This is the root React component.
@@ -13,6 +13,7 @@ const App = () => {
   return (
     <div className={styles['root']}>
       <HeroCarousel />
+      <Jedi />
       <CreativeSpaces />
 
       <Button variant="primary">primary</Button>
