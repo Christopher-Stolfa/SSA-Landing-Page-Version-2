@@ -16,12 +16,9 @@
   align-items: center;
   text-align: center;
   cursor: pointer;
+  text-decoration: none;
   color: $color_1;
   background-color: $color_2;
-  transition: vars.$transition;
-  &:hover {
-    transform: vars.$transform;
-  }
 }
 
 @mixin border($color) {
@@ -31,15 +28,40 @@
 .primary {
   @include button(colors.$black, colors.$yellow);
   @include border(colors.$yellow);
+  transition: vars.$transition;
+  &:hover {
+    transform: vars.$transform;
+  }
 }
 
 .secondary {
   @include button(colors.$yellow, colors.$black);
   @include border(colors.$yellow);
+  transition: vars.$transition;
+  &:hover {
+    transform: vars.$transform;
+  }
 }
 
 .tertiary {
-  box-shadow: 0px 4px 8px -2px rgba(255, 255, 255, 0.25);
   @include button(white, colors.$black);
   @include border(white);
+  height: 50px;
+  min-width: 240px;
+  flex: 1;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #fff;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+  background-color: #000;
+  transition: box-shadow 200ms ease;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #fff;
+  font-size: 18px;
+  line-height: 2rem;
+  font-weight: 700;
+  text-align: center;
+  &:hover {
+    box-shadow: inset 0 0 0 3px #fff;
+  }
 }
