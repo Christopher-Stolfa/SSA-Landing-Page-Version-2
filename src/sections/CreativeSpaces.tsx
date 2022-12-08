@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import styles from './CreativeSpaces.module.scss';
-import indexStyles from './index.module.scss';
 import { Tab, TabArrows, TabList, TabPanel, TabPanels } from '../components/Tabs';
 import Tabs from '../components/Tabs/Tabs';
 import { Container } from '../components/Container';
@@ -10,16 +9,15 @@ import Img from 'react-cool-img';
 import { placeholderImg } from '../assets';
 import { Button } from '../components/Buttons';
 import { regexStripHtml } from '../utils';
-import { PageDataContext } from '../contexts/PageDataContext';
+import { useQuery } from '@apollo/client';
+import GET_PAGE_DATA, { IPageData } from '../data/get-data';
 
 /**
  * Creative Spaces section with tablist content
  * @component
  */
 const CreativeSpaces = () => {
-  const {
-    pageData: { page },
-  } = useContext(PageDataContext);
+  const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);
 
   return (
     <Container>
@@ -28,19 +26,19 @@ const CreativeSpaces = () => {
         <Tabs className={styles['tabs-container']}>
           <div className={styles['tabs-flex']}>
             <TabList className={styles['tablist']}>
-              {page?.landingPage?.creativeSpaces?.map(({ title }, i) => (
+              {data?.page?.landingPage?.creativeSpaces?.map(({ title }, i) => (
                 <Tab key={uniqueId(title)} id={i}>
                   {title}
                 </Tab>
               ))}
             </TabList>
             <TabPanels>
-              {page?.landingPage?.creativeSpaces?.map(
+              {data?.page?.landingPage?.creativeSpaces?.map(
                 ({ title, description, image, moreInfoUrl, schedule }, i) => (
                   <TabPanel key={uniqueId(title)} id={i}>
                     <span className={styles['small-screen-header']}>
                       <Header as="h3">{title}</Header>
-                      <TabArrows size={page?.landingPage?.creativeSpaces?.length || 0} />
+                      <TabArrows size={data?.page?.landingPage?.creativeSpaces?.length || 0} />
                     </span>
                     <Img
                       lazy
