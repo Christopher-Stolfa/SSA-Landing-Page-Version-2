@@ -62,7 +62,7 @@ export interface IPageData {
 }
 
 const GET_PAGE_DATA = gql`
-  query getCreativeSpaces {
+  query getPageData {
     page(id: "https://dev-spitzer-arch.pantheonsite.io/landing-page/", idType: URI) {
       landingPage {
         heroDescription

@@ -1,13 +1,14 @@
-import React, { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import styles from './HeroCarousel.module.scss';
 import { Carousel } from 'react-responsive-carousel';
-import { PageDataContext } from '../contexts/PageDataContext';
 import { uniqueId } from 'lodash';
 import Img from 'react-cool-img';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { placeholderImg } from '../assets';
 import { Button } from '../components/Buttons';
 import IconButton, { IIconButtonProps } from '../components/Buttons/IconButton';
+import { useQuery } from '@apollo/client';
+import GET_PAGE_DATA, { IPageData } from '../data/get-data';
 
 const socialMedia: IIconButtonProps[] = [
   {
@@ -35,9 +36,8 @@ const socialMedia: IIconButtonProps[] = [
 const heroPadding = 39;
 
 const HeroCarousel = () => {
-  const {
-    pageData: { page },
-  } = useContext(PageDataContext);
+  const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);
+
   const [height, setHeight] = useState(390);
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -98,7 +98,7 @@ const HeroCarousel = () => {
           </h1>
         </div>
         <Carousel dynamicHeight={false} showArrows={true} showThumbs={false}>
-          {page?.landingPage?.carousel?.map((item) => (
+          {data?.page?.landingPage?.carousel?.map((item) => (
             <div key={uniqueId(item?.link)} style={{ height: `${height}px` }}>
               <img
                 className={styles['img']}
