@@ -14,6 +14,18 @@ export interface IPageData {
         link?: string;
         altText?: string;
       }[];
+      featuredPostGroup: {
+        post: {
+          date: Date;
+          link: string;
+          title: string;
+          content: string;
+        };
+        image: {
+          altText: string;
+          link: string;
+        };
+      }[];
       creativeSpaces?: {
         title?: string;
         description?: string;
@@ -37,7 +49,7 @@ export interface IPageData {
         name?: string;
         url?: string;
       }[];
-      buttonurls?: {
+      buttonUrls?: {
         apply?: string;
         calendar?: string;
         events?: string;
@@ -69,6 +81,20 @@ const GET_PAGE_DATA = gql`
         carousel {
           link
           altText
+        }
+        featuredPostGroup {
+          post {
+            ... on Post {
+              date
+              link
+              title
+              content
+            }
+          }
+          image {
+            altText
+            link
+          }
         }
         creativeSpaces {
           title
@@ -112,7 +138,7 @@ const GET_PAGE_DATA = gql`
           name
           url
         }
-        buttonurls {
+        buttonUrls {
           apply
           calendar
           events

@@ -1,0 +1,27 @@
+.root {
+  display: block;
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  flex-direction: row;
+  justify-content: center;
+  align-content: stretch;
+  grid-column-gap: 40px;
+  grid-row-gap: 40px;
+  padding: 2rem;
+}
+
+.scroll-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.block {
+  display: block;
+  max-width: 1280px;
+  margin: auto;
+}
