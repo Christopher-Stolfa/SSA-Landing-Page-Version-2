@@ -37,7 +37,7 @@ const CreativeSpaces = () => {
                 ({ title, description, image, moreInfoUrl, schedule }, i) => (
                   <TabPanel key={uniqueId(title)} id={i}>
                     <span className={styles['small-screen-header']}>
-                      <Header as="h3">{title}</Header>
+                      <Header as="h4">{title}</Header>
                       <TabArrows size={data?.page?.landingPage?.creativeSpaces?.length || 0} />
                     </span>
                     <Img
@@ -52,7 +52,7 @@ const CreativeSpaces = () => {
                     />
                     <div className={styles['content']}>
                       <span className={styles['large-screen-header']}>
-                        <Header as="h3">{title}</Header>
+                        <Header as="h4">{title}</Header>
                       </span>
                       <p>{regexStripHtml(description)}</p>
                     </div>

@@ -7,7 +7,7 @@ type TImage = {
 
 type TTestomnial = { name: string; position: string; testimonial: string; image: TImage };
 export interface IPageData {
-  page?: {
+  page: {
     landingPage?: {
       heroDescription?: string;
       carousel?: {
@@ -62,11 +62,12 @@ export interface IPageData {
       };
     };
   };
-  events?: {
-    edges?: {
-      node?: {
+  events: {
+    edges: {
+      node: {
         title?: string;
-        date?: Date;
+        eventStartDate: Date;
+        eventEndDate: Date;
         link?: string;
       };
     }[];
@@ -151,11 +152,12 @@ const GET_PAGE_DATA = gql`
         }
       }
     }
-    events(first: 20) {
+    events(first: 50, where: { orderby: { field: EVENT_END_DATE, order: DESC } }) {
       edges {
         node {
           title
-          date
+          eventStartDate
+          eventEndDate
           link
         }
       }

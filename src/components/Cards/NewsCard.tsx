@@ -29,7 +29,7 @@ const NewsCard = ({ title, date, content, href, alt, src = placeholderImg }: Pro
       />
       <div className={styles['card-body']}>
         <span className={styles['date']}>{moment(date).format('MMM D, YYYY').toString()}</span>
-        <h3 className={styles['title']}>{title}</h3>
+        <h4 className={styles['title']}>{title}</h4>
         <p className={styles['content']}>{regexStripHtml(content)}</p>
       </div>
     </a>
