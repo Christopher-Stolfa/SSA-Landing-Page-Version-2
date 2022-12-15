@@ -1,0 +1,77 @@
+.root {
+  margin: auto;
+  margin-top: 60px;
+  padding-right: 2rem;
+  padding-left: 2rem;
+
+  .container {
+    max-width: 1280px;
+    min-width: 320px;
+    margin-right: auto;
+    margin-left: auto;
+    //   @media screen and (max-width: 767px) {
+    //     padding: 4rem 2rem;
+    //   }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem;
+      @media screen and (max-width: 767px) {
+        grid-template-columns: 1fr;
+      }
+      .programs-btn {
+        color: white;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        height: 60px;
+        padding: 1rem;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #000;
+        -webkit-transition: box-shadow 200ms ease, -webkit-transform 200ms ease;
+        transition: box-shadow 200ms ease, -webkit-transform 200ms ease;
+        transition: box-shadow 200ms ease, transform 200ms ease;
+        transition: box-shadow 200ms ease, transform 200ms ease, -webkit-transform 200ms ease;
+        text-decoration: none;
+
+        .text {
+          font-family: 'Roboto Condensed', sans-serif;
+          color: #fff;
+          font-size: 18px;
+          line-height: 150%;
+          font-weight: 700;
+          letter-spacing: 3px;
+          text-decoration: none;
+          text-transform: uppercase;
+          @media screen and (max-width: 767px) {
+            font-size: 16px;
+          }
+          @media screen and (max-width: 479px) {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 1px;
+          }
+        }
+        &:hover {
+          box-shadow: inset 0 -8px 0 0 #fc0;
+          -webkit-transform: none;
+          -ms-transform: none;
+          transform: none;
+        }
+      }
+    }
+  }
+}

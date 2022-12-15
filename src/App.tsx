@@ -3,6 +3,7 @@ import styles from './App.module.scss';
 import { Button, IconButton } from './components/Buttons';
 import { CreativeSpaces, HeroCarousel, Jedi } from './sections';
 import NewsAndEvents from './sections/NewsAndEvents';
+import Programs from './sections/Programs';
 
 /**
  * This is the root React component.
@@ -15,12 +16,8 @@ const App = () => {
       <HeroCarousel />
       <NewsAndEvents />
       <Jedi />
+      <Programs />
       <CreativeSpaces />
-
-      <Button variant="primary">primary</Button>
-      <Button variant="secondary">secondary</Button>
-      <Button variant="tertiary">tertiary</Button>
-      <IconButton href="facebook.com" variant="facebook" />
     </div>
   );
 };
