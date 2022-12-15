@@ -16,19 +16,21 @@ const NewsAndEvents = () => {
     <div className={styles['root']}>
       <div className={styles['container']}>
         <div className={styles['news']}>
-          <Header as="h2">FEATURED NEWS</Header>
-          <div className={styles['news-cards']}>
-            {data?.page?.landingPage?.featuredPostGroup?.map((post, i) => (
-              <NewsCard
-                key={uniqueId(`feat-post-${i}`)}
-                title={post?.post?.title}
-                date={post?.post?.date}
-                content={post?.post?.content}
-                href={post?.post?.link}
-                src={post?.image?.link}
-                alt={post?.image?.altText}
-              />
-            ))}
+          <div>
+            <Header as="h2">FEATURED NEWS</Header>
+            <div className={styles['news-cards']}>
+              {data?.page?.landingPage?.featuredPostGroup?.map((post, i) => (
+                <NewsCard
+                  key={uniqueId(`feat-post-${i}`)}
+                  title={post?.post?.title}
+                  date={post?.post?.date}
+                  content={post?.post?.content}
+                  href={post?.post?.link}
+                  src={post?.image?.link}
+                  alt={post?.image?.altText}
+                />
+              ))}
+            </div>
           </div>
         </div>
         <div className={styles['events']}>
@@ -54,8 +56,12 @@ const NewsAndEvents = () => {
               ))}
           </ul>
           <div className={styles['btn-group']}>
-            <Button className={styles['btn']}>ALL SSA EVENTS</Button>
-            <Button className={styles['btn']}>CCNY CALENDAR</Button>
+            <Button href={data?.page?.landingPage?.buttonUrls?.events} className={styles['btn']}>
+              ALL SSA EVENTS
+            </Button>
+            <Button href={data?.page?.landingPage?.buttonUrls?.calendar} className={styles['btn']}>
+              CCNY CALENDAR
+            </Button>
           </div>
         </div>
       </div>
