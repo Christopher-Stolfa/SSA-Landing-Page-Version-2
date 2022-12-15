@@ -29,12 +29,20 @@ const Jedi = () => {
             groups.
           </div>
           <div className={styles['btn-group']}>
-            <Button href={data?.page?.landingPage?.buttonUrls?.statement} variant="tertiary">
+            <a
+              className={styles['jedi-button']}
+              target="_blank"
+              rel="noreferrer"
+              href={data?.page?.landingPage?.buttonUrls?.statement}>
               RACIAL EQUITY STATEMENT
-            </Button>
-            <Button href={data?.page?.landingPage?.buttonUrls?.jedi} variant="tertiary">
+            </a>
+            <a
+              className={styles['jedi-button']}
+              target="_blank"
+              rel="noreferrer"
+              href={data?.page?.landingPage?.buttonUrls?.jedi}>
               JEDI INITIATIVES
-            </Button>
+            </a>
           </div>
         </div>
       </div>
