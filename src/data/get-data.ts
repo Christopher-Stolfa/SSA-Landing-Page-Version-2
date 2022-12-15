@@ -7,12 +7,24 @@ type TImage = {
 
 type TTestomnial = { name: string; position: string; testimonial: string; image: TImage };
 export interface IPageData {
-  page?: {
+  page: {
     landingPage?: {
       heroDescription?: string;
       carousel?: {
         link?: string;
         altText?: string;
+      }[];
+      featuredPostGroup: {
+        post: {
+          date: Date;
+          link: string;
+          title: string;
+          content: string;
+        };
+        image: {
+          altText: string;
+          link: string;
+        };
       }[];
       creativeSpaces?: {
         title?: string;
@@ -37,7 +49,7 @@ export interface IPageData {
         name?: string;
         url?: string;
       }[];
-      buttonurls?: {
+      buttonUrls?: {
         apply?: string;
         calendar?: string;
         events?: string;
@@ -50,11 +62,12 @@ export interface IPageData {
       };
     };
   };
-  events?: {
-    edges?: {
-      node?: {
+  events: {
+    edges: {
+      node: {
         title?: string;
-        date?: Date;
+        eventStartDate: Date;
+        eventEndDate: Date;
         link?: string;
       };
     }[];
@@ -69,6 +82,20 @@ const GET_PAGE_DATA = gql`
         carousel {
           link
           altText
+        }
+        featuredPostGroup {
+          post {
+            ... on Post {
+              date
+              link
+              title
+              content
+            }
+          }
+          image {
+            altText
+            link
+          }
         }
         creativeSpaces {
           title
@@ -112,7 +139,7 @@ const GET_PAGE_DATA = gql`
           name
           url
         }
-        buttonurls {
+        buttonUrls {
           apply
           calendar
           events
@@ -125,11 +152,12 @@ const GET_PAGE_DATA = gql`
         }
       }
     }
-    events(first: 20) {
+    events(first: 50, where: { orderby: { field: EVENT_END_DATE, order: DESC } }) {
       edges {
         node {
           title
-          date
+          eventStartDate
+          eventEndDate
           link
         }
       }

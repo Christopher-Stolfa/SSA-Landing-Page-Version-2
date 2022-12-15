@@ -1,0 +1,51 @@
+.root {
+  flex: 0 0 auto;
+  background: #ffffff;
+  box-shadow: 0px 4px 8px -2px rgba(0, 0, 0, 0.25);
+  width: 268px;
+  height: 391px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  grid-row-gap: 16px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 200ms ease, -webkit-transform 200ms ease;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+  transition: box-shadow 200ms ease, transform 200ms ease, -webkit-transform 200ms ease;
+  text-decoration: none;
+  &:hover {
+    box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.5);
+    transform: translate(0px, -2px);
+    outline: 0;
+  }
+  .card-body {
+    display: flex;
+    overflow: hidden;
+    height: 180px;
+    padding-right: 16px;
+    padding-bottom: 0px;
+    padding-left: 16px;
+    flex-direction: column;
+    grid-row-gap: 8px;
+    white-space: break-spaces;
+    .date {
+      color: #555;
+      font-size: 10px;
+      line-height: 10px;
+      font-weight: 700;
+    }
+    .title {
+      color: #000;
+      font-size: 18px;
+      line-height: 150%;
+      font-weight: 700;
+      letter-spacing: 0px;
+    }
+    .content {
+      color: #000;
+      font-weight: 400;
+      width: 240px;
+    }
+  }
+}

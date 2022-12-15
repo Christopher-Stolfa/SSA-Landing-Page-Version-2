@@ -1,0 +1,92 @@
+.root {
+  display: block;
+  margin: 1rem;
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: stretch;
+  grid-column-gap: 40px;
+  grid-row-gap: 40px;
+
+  .container {
+    display: flex;
+    gap: 2rem;
+    margin: auto;
+    @media screen and (max-width: 769px) {
+      flex-direction: column;
+    }
+    @media screen and (max-width: 1251px) {
+      padding: 0 1rem;
+    }
+    .news {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      display: block;
+      max-width: 836px;
+      .news-cards {
+        display: flex;
+        overflow: auto;
+        gap: 1rem;
+        padding-bottom: 1rem;
+      }
+    }
+    .events {
+      display: block;
+      max-width: 384px;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      @media screen and (max-width: 769px) {
+        max-width: 100%;
+      }
+      .events-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-bottom: 50px;
+        .event-list-item {
+          display: flex;
+          padding-bottom: 1rem;
+          flex-direction: column;
+          grid-row-gap: 4px;
+          border-bottom: 1px solid #b5b5b5;
+          margin: 0;
+          .event-date {
+            font-size: 10px;
+            line-height: 12px;
+            font-weight: 700;
+            color: #333;
+          }
+          .event-link {
+            text-decoration: none;
+            color: #333;
+            &:hover {
+              text-decoration: underline;
+              color: #000;
+            }
+          }
+        }
+      }
+      .btn-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        grid-column-gap: 16px;
+        gap: 1rem;
+        .btn {
+          height: 45px;
+          flex: 1;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

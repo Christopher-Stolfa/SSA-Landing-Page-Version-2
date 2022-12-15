@@ -16,7 +16,7 @@ const Header = ({ as = 'h4', children }: IHeaderProps) => {
       {as === 'h1' && <h1>{children}</h1>}
       {as === 'h2' && <h2 className={styles[as]}>{children}</h2>}
       {as === 'h3' && <h3 className={styles[as]}>{children}</h3>}
-      {as === 'h4' && <h4>{children}</h4>}
+      {as === 'h4' && <h4 className={styles[as]}>{children}</h4>}
     </>
   );
 };
