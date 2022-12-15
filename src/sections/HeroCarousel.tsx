@@ -31,6 +31,10 @@ const socialMedia: IIconButtonProps[] = [
     href: 'https://twitter.com/whatsonatssa',
     variant: 'twitter',
   },
+  {
+    href: 'https://cuny.us4.list-manage.com/subscribe?u=21d6a2d10f897e4acb0de0db3&id=6281843555',
+    variant: 'mail',
+  },
 ];
 
 const heroPadding = 39;
@@ -66,21 +70,39 @@ const HeroCarousel = () => {
             Creating a just, sustainable, and imaginative future. Come to dream, design, and build
             at City.
           </p>
-          <Button className={styles['btn']} variant="primary">
+          <Button
+            href={data?.page?.landingPage?.buttonUrls?.apply}
+            className={styles['btn']}
+            variant="primary">
             APPLY
           </Button>
-          <Button className={styles['btn']} variant="secondary">
+          <Button
+            href={data?.page?.landingPage?.buttonUrls?.work}
+            className={styles['btn']}
+            variant="secondary">
             VIEW STUDENT WORK
           </Button>
           <div className={styles['btn-container']}>
-            <Button className={styles['btn-smalltext']} variant="primary">
+            <Button
+              href={data?.page?.landingPage?.buttonUrls?.undergraduate}
+              className={styles['btn-smalltext']}
+              variant="primary">
               UNDERGRADUATE
             </Button>
-            <Button className={styles['btn-smalltext']} variant="primary">
+            <Button
+              href={data?.page?.landingPage?.buttonUrls?.graduate}
+              className={styles['btn-smalltext']}
+              variant="primary">
               GRADUATE
             </Button>
           </div>
-          <a className={styles['info']}>Request Information</a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://ssa.ccny.cuny.edu/request-information-from-ssa/"
+            className={styles['info']}>
+            Request Information
+          </a>
           <ul className={styles['btn-social-list']}>
             {socialMedia.map((socialProps: IIconButtonProps) => (
               <li key={uniqueId(socialProps?.variant)}>
