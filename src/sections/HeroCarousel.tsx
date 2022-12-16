@@ -44,6 +44,7 @@ const HeroCarousel = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const containerWidth = containerRef?.current?.getBoundingClientRect().width;
   const isTablet = containerWidth && containerWidth < 768;
+  const imgHeight = isTablet ? 390 : rect?.height;
 
   return (
     <div ref={containerRef} className={styles['flex']}>
@@ -108,7 +109,7 @@ const HeroCarousel = () => {
         </div>
         <Carousel dynamicHeight={false} showArrows={true} showThumbs={false}>
           {data?.page?.landingPage?.carousel?.map((item) => (
-            <div key={uniqueId(item?.link)} style={{ height: isTablet ? 390 : rect?.height }}>
+            <div key={uniqueId(item?.link)} style={{ height: imgHeight }}>
               <img
                 className={styles['img']}
                 loading="lazy"
