@@ -38,8 +38,6 @@ const socialMedia: IIconButtonProps[] = [
   },
 ];
 
-const heroPadding = 39;
-
 const HeroCarousel = () => {
   const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);
   const [ref, rect] = useResizeObserver();
