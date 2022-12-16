@@ -54,10 +54,7 @@ const HeroCarousel = () => {
             <span className={styles['color-yellow']}>NEW YORK CITY&apos;S</span> FLAGSHIP PUBLIC
             SCHOOL FOR <span className={styles['color-yellow']}>ARCHITECTURE</span>
           </h1>
-          <p className={styles['quote']}>
-            Creating a just, sustainable, and imaginative future. Come to dream, design, and build
-            at City.
-          </p>
+          <p className={styles['quote']}>{data?.page?.landingPage?.heroDescription}</p>
           <Button
             href={data?.page?.landingPage?.buttonUrls?.apply}
             className={styles['btn']}
