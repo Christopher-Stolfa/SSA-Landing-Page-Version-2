@@ -9,6 +9,7 @@ import { Button } from '../components/Buttons';
 import IconButton, { IIconButtonProps } from '../components/Buttons/IconButton';
 import { useQuery } from '@apollo/client';
 import GET_PAGE_DATA, { IPageData } from '../data/get-data';
+import { useResizeObserver } from '@mantine/hooks';
 
 const socialMedia: IIconButtonProps[] = [
   {
@@ -41,22 +42,10 @@ const heroPadding = 39;
 
 const HeroCarousel = () => {
   const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);
-
-  const [height, setHeight] = useState(390);
-
+  const [ref, rect] = useResizeObserver();
   const containerRef = useRef<HTMLDivElement>(null);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    if (ref?.current && containerRef?.current) {
-      if (containerRef.current.clientWidth > 768) {
-        setHeight(ref.current.clientHeight + heroPadding);
-      }
-      if (containerRef.current.clientWidth < 768) {
-        setHeight(390);
-      }
-    }
-  }, [ref.current, containerRef.current]);
+  const containerWidth = containerRef?.current?.getBoundingClientRect().width;
+  const isTablet = containerWidth && containerWidth < 768;
 
   return (
     <div ref={containerRef} className={styles['flex']}>
@@ -121,7 +110,7 @@ const HeroCarousel = () => {
         </div>
         <Carousel dynamicHeight={false} showArrows={true} showThumbs={false}>
           {data?.page?.landingPage?.carousel?.map((item) => (
-            <div key={uniqueId(item?.link)} style={{ height: `${height}px` }}>
+            <div key={uniqueId(item?.link)} style={{ height: isTablet ? 390 : rect?.height }}>
               <img
                 className={styles['img']}
                 loading="lazy"
