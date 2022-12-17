@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styles from './HeroCarousel.module.scss';
 import { Carousel } from 'react-responsive-carousel';
 import { uniqueId } from 'lodash';
@@ -41,13 +41,26 @@ const socialMedia: IIconButtonProps[] = [
 const HeroCarousel = () => {
   const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);
   const [ref, rect] = useResizeObserver();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const containerWidth = containerRef?.current?.getBoundingClientRect().width;
-  const isTablet = containerWidth && containerWidth < 768;
-  const imgHeight = isTablet ? 390 : rect?.height;
+  const heroheight = rect?.height;
+  //  const containerRef = useRef<HTMLDivElement>(null);
+  // const containerWidth = containerRef?.current?.getBoundingClientRect().width;
+  // const handleHeight = useCallback(() => {
+  //   {
+  //     const isTablet = containerWidth && containerWidth < 768;
+  //     if (isTablet) {
+  //       setImgHeight(390);
+  //     } else {
+  //       setImgHeight(rect?.height);
+  //     }
+  //   }
+  // }, [containerWidth]);
+
+  // useEffect(() => {
+  //   handleHeight();
+  // }, [handleHeight]);
 
   return (
-    <div ref={containerRef} className={styles['flex']}>
+    <div className={styles['flex']}>
       <div ref={ref} className={styles['hero']}>
         <div className={styles['container']}>
           <h1 className={styles['h1-large']}>
@@ -104,20 +117,18 @@ const HeroCarousel = () => {
             SCHOOL FOR <span className={styles['color-yellow']}>ARCHITECTURE</span>
           </h1>
         </div>
-        <Carousel dynamicHeight={false} showArrows={true} showThumbs={false}>
+        <Carousel dynamicHeight={false} showArrows={true} showThumbs={false} autoPlay={false}>
           {data?.page?.landingPage?.carousel?.map((item) => (
-            <div key={uniqueId(item?.link)} style={{ height: imgHeight }}>
-              <img
-                className={styles['img']}
-                loading="lazy"
-                src={item?.link}
-                placeholder={placeholderImg}
-                alt={item?.altText}
-                sizes="(max-width: 1280px) 100vw, 1280px"
-                width="100%"
-                height="100%"
-              />
-            </div>
+            <img
+              key={uniqueId(item?.link)}
+              className={styles['img']}
+              loading="lazy"
+              src={item?.link}
+              placeholder={placeholderImg}
+              alt={item?.altText}
+              width="100%"
+              height={heroheight}
+            />
           ))}
         </Carousel>
       </div>
