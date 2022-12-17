@@ -1,10 +1,8 @@
 import React from 'react';
 import styles from './App.module.scss';
 import { Button, IconButton } from './components/Buttons';
-import { CreativeSpaces, HeroCarousel, Jedi } from './sections';
-import NewsAndEvents from './sections/NewsAndEvents';
-import Programs from './sections/Programs';
-
+import { CreativeSpaces, HeroCarousel, Jedi, NewsAndEvents, Programs } from './sections';
+  
 /**
  * This is the root React component.
  *

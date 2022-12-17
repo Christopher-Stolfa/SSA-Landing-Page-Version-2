@@ -41,23 +41,7 @@ const socialMedia: IIconButtonProps[] = [
 const HeroCarousel = () => {
   const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);
   const [ref, rect] = useResizeObserver();
-  const heroheight = rect?.height;
-  //  const containerRef = useRef<HTMLDivElement>(null);
-  // const containerWidth = containerRef?.current?.getBoundingClientRect().width;
-  // const handleHeight = useCallback(() => {
-  //   {
-  //     const isTablet = containerWidth && containerWidth < 768;
-  //     if (isTablet) {
-  //       setImgHeight(390);
-  //     } else {
-  //       setImgHeight(rect?.height);
-  //     }
-  //   }
-  // }, [containerWidth]);
-
-  // useEffect(() => {
-  //   handleHeight();
-  // }, [handleHeight]);
+  const heroHeight = rect?.height;
 
   return (
     <div className={styles['flex']}>
@@ -80,19 +64,24 @@ const HeroCarousel = () => {
             variant="secondary">
             VIEW STUDENT WORK
           </Button>
-          <div className={styles['btn-container']}>
-            <Button
-              href={data?.page?.landingPage?.buttonUrls?.undergraduate}
-              className={styles['btn-smalltext']}
-              variant="primary">
-              UNDERGRADUATE
-            </Button>
-            <Button
-              href={data?.page?.landingPage?.buttonUrls?.graduate}
-              className={styles['btn-smalltext']}
-              variant="primary">
-              GRADUATE
-            </Button>
+          <div className={styles['info-sessions']}>
+            <p className={styles['info-session-text']}>
+              Join us for our scheduled tours and info sessions!
+            </p>
+            <div className={styles['btn-container']}>
+              <Button
+                href={data?.page?.landingPage?.buttonUrls?.undergraduate}
+                className={styles['btn-smalltext']}
+                variant="primary">
+                UNDERGRADUATE
+              </Button>
+              <Button
+                href={data?.page?.landingPage?.buttonUrls?.graduate}
+                className={styles['btn-smalltext']}
+                variant="primary">
+                GRADUATE
+              </Button>
+            </div>
           </div>
           <a
             target="_blank"
@@ -127,7 +116,7 @@ const HeroCarousel = () => {
               placeholder={placeholderImg}
               alt={item?.altText}
               width="100%"
-              height={heroheight}
+              height={heroHeight}
             />
           ))}
         </Carousel>

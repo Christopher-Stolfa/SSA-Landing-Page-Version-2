@@ -36,6 +36,10 @@
   color: #ffffff;
 }
 
+.h1-small {
+  text-align: center;
+}
+
 .h1-small,
 .h1-large {
   text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
@@ -43,7 +47,10 @@
   font-family: 'Roboto Condensed';
   font-weight: 500;
   letter-spacing: 0.07em;
-  text-align: center;
+}
+
+.h1-large {
+  text-align: left;
 }
 
 .h1-small-wrap {
@@ -110,8 +117,6 @@
 }
 
 .btn-container {
-  background: #251e00;
-  border: 1px solid #574600;
   display: flex;
   gap: 0.75rem;
   width: 100%;
@@ -130,9 +135,36 @@
   width: 500px;
 }
 
+.info-sessions {
+  display: flex;
+  flex-direction: column;
+  background: #251e00;
+  border: 1px solid #574600;
+  .info-session-text {
+    align-self: center;
+    text-align: center;
+    padding-top: 0.5rem;
+    font-size: 12px;
+  }
+}
+
 @media screen and (max-width: 400px) {
   .btn-container {
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 832px) {
+  .container {
+    width: 70%;
+    padding: 1rem;
   }
 }
 
@@ -163,6 +195,23 @@
   }
 }
 
+@media screen and (min-width: 833px) {
+  .quote {
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 833px) and (max-width: 1440px) {
+  .quote {
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .container {
+    width: auto;
+    padding: 1rem;
+  }
+}
+
 @media screen and (max-width: 1440px) {
   .btn {
     font-size: 1rem;
@@ -176,14 +225,5 @@
   .h1-large {
     font-size: 24px;
     line-height: 32px;
-    text-align: left;
-  }
-  .quote {
-    font-weight: 400;
-    font-size: 1rem;
-    text-align: left;
-  }
-  .container {
-    width: auto;
   }
 }
