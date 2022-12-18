@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from './CreativeSpaces.module.scss';
-import { Tab, TabArrows, TabList, TabPanel, TabPanels } from '../components/Tabs';
-import Tabs from '../components/Tabs/Tabs';
-import { Container } from '../components/Container';
-import { Header } from '../components/Headers';
+import { Tab, TabArrows, TabList, TabPanel, TabPanels } from '../../components/Tabs';
+import Tabs from '../../components/Tabs/Tabs';
+import { Container } from '../../components/Container';
+import { Header } from '../../components/Headers';
 import { uniqueId } from 'lodash';
 import Img from 'react-cool-img';
-import { placeholderImg } from '../assets';
-import { Button } from '../components/Buttons';
-import { regexStripHtml } from '../utils';
+import { placeholderImg } from '../../assets';
+import { regexStripHtml } from '../../utils';
 import { useQuery } from '@apollo/client';
-import GET_PAGE_DATA, { IPageData } from '../data/get-data';
+import GET_PAGE_DATA, { IPageData } from '../../data/get-data';
+import CreativeSpacesInfo from './CreativeSpacesInfo';
 
 /**
  * Creative Spaces section with tablist content
@@ -61,13 +61,7 @@ const CreativeSpaces = () => {
               )}
             </TabPanels>
           </div>
-          <div className={styles['info']}>
-            <p>Join us for our scheduled info sessions</p>
-            <div className={styles['btn-group']}>
-              <Button className={styles['btn']}>Undergraduate</Button>
-              <Button className={styles['btn']}>Graduate</Button>
-            </div>
-          </div>
+          <CreativeSpacesInfo />
         </Tabs>
       </div>
     </Container>
