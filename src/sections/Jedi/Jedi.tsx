@@ -1,8 +1,7 @@
 import { useQuery } from '@apollo/client';
 import React from 'react';
-import GET_PAGE_DATA, { IPageData } from '../data/get-data';
+import GET_PAGE_DATA, { IPageData } from '../../data/get-data';
 import styles from './Jedi.module.scss';
-import { Button } from '../components/Buttons';
 
 const Jedi = () => {
   const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);

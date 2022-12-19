@@ -2,11 +2,11 @@ import { useQuery } from '@apollo/client';
 import { uniqueId } from 'lodash';
 import moment from 'moment';
 import React from 'react';
-import NewsCard from '../components/Cards/NewsCard';
-import { Header } from '../components/Headers';
-import GET_PAGE_DATA, { IPageData } from '../data/get-data';
-import { formatDate } from '../utils';
-import { Button } from '../components/Buttons';
+import NewsCard from '../../components/Cards/NewsCard';
+import { Header } from '../../components/Headers';
+import GET_PAGE_DATA, { IPageData } from '../../data/get-data';
+import { formatDate } from '../../utils';
+import { Button } from '../../components/Buttons';
 import styles from './NewsAndEvents.module.scss';
 
 const NewsAndEvents = () => {

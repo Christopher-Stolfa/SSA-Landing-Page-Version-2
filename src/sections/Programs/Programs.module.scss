@@ -12,6 +12,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 1rem;
+      padding-bottom: 3.75rem;
       @media screen and (max-width: 767px) {
         grid-template-columns: 1fr;
       }
