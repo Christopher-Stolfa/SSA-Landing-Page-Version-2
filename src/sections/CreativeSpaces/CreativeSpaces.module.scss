@@ -44,6 +44,16 @@
         }
       }
       .content {
+        margin-top: 2rem;
+        .description {
+          margin-bottom: 2rem;
+          line-height: 2rem;
+          white-space: break-spaces;
+        }
+        .btn {
+          font-size: 1.125rem;
+          width: 19rem;
+        }
         @media screen and (max-width: 1024px) {
           margin-top: 2rem;
         }

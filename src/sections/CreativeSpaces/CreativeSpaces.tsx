@@ -11,6 +11,8 @@ import { regexStripHtml } from '../../utils';
 import { useQuery } from '@apollo/client';
 import GET_PAGE_DATA, { IPageData } from '../../data/get-data';
 import CreativeSpacesInfo from './CreativeSpacesInfo';
+import { Button } from '../../components/Buttons';
+import { ReadMore } from '../../components/ReadMore';
 
 /**
  * Creative Spaces section with tablist content
@@ -18,7 +20,6 @@ import CreativeSpacesInfo from './CreativeSpacesInfo';
  */
 const CreativeSpaces = () => {
   const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);
-
   return (
     <Container>
       <div className={styles['container']}>
@@ -34,7 +35,7 @@ const CreativeSpaces = () => {
             </TabList>
             <TabPanels>
               {data?.page?.landingPage?.creativeSpaces?.map(
-                ({ title, description, image, moreInfoUrl, schedule }, i) => (
+                ({ title, description, image, moreInfoUrl }, i) => (
                   <TabPanel key={uniqueId(title)} id={i}>
                     <span className={styles['small-screen-header']}>
                       <Header as="h4">{title}</Header>
@@ -54,7 +55,14 @@ const CreativeSpaces = () => {
                       <span className={styles['large-screen-header']}>
                         <Header as="h4">{title}</Header>
                       </span>
-                      <p>{regexStripHtml(description)}</p>
+                      <div className={styles['description']}>
+                        <ReadMore>{regexStripHtml(description)}</ReadMore>
+                      </div>
+                      {moreInfoUrl && (
+                        <Button href={moreInfoUrl} className={styles['btn']}>
+                          More Info
+                        </Button>
+                      )}
                     </div>
                   </TabPanel>
                 ),

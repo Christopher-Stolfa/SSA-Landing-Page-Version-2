@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styles from './NewsCard.module.scss';
 import { placeholderImg } from '../../assets';
 import Img from 'react-cool-img';
 import moment from 'moment';
 import { regexStripHtml } from '../../utils';
 interface Props {
-  title?: string;
+  title: string;
   date?: Date;
-  content?: string;
+  content: string;
   src?: string;
   href?: string;
   alt?: string;
@@ -16,6 +16,11 @@ interface Props {
 const defaultAlt = 'Card Image';
 
 const NewsCard = ({ title, date, content, href, alt, src = placeholderImg }: Props) => {
+  const minChars = 145 - title.length;
+  const isTruncated = content?.length > minChars;
+  const contentRegex = useMemo(() => {
+    return regexStripHtml(content);
+  }, [content]);
   return (
     <a className={styles['root']} target="_blank" rel="noreferrer" href={href}>
       <Img
@@ -30,7 +35,9 @@ const NewsCard = ({ title, date, content, href, alt, src = placeholderImg }: Pro
       <div className={styles['card-body']}>
         <span className={styles['date']}>{moment(date).format('MMM D, YYYY').toString()}</span>
         <h4 className={styles['title']}>{title}</h4>
-        <p className={styles['content']}>{regexStripHtml(content)}</p>
+        <p className={styles['content']}>
+          {isTruncated ? `${contentRegex?.slice(0, minChars)}...` : contentRegex}
+        </p>
       </div>
     </a>
   );

@@ -54,8 +54,12 @@ const CreativeSpacesInfo = () => {
       {schedule}
       <p className={styles['info-sessions']}>Join us for our scheduled info sessions</p>
       <div className={styles['btn-group']}>
-        <Button className={styles['btn']}>Undergraduate</Button>
-        <Button className={styles['btn']}>Graduate</Button>
+        <Button href={data?.page?.landingPage?.buttonUrls?.undergraduate} className={styles['btn']}>
+          Undergraduate
+        </Button>
+        <Button href={data?.page?.landingPage?.buttonUrls?.graduate} className={styles['btn']}>
+          Graduate
+        </Button>
       </div>
     </div>
   );
