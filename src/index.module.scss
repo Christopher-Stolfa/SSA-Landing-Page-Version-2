@@ -1,8 +1,7 @@
+@use './stylesheets/modules/colors';
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Roboto+Condensed:400,700);
-
 .root {
-  background-color: #fff6e0;
+  background-color: colors.$cream;
   height: 100%;
   width: 100%;
-  box-sizing: content-box;
 }

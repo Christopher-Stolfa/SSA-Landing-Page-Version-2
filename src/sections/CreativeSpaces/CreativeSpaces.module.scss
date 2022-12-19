@@ -1,0 +1,63 @@
+.container {
+  max-width: 1280px;
+  min-width: 320px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 3rem;
+  .tabs-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 1280px;
+    justify-content: center;
+    align-content: center;
+    gap: 2rem;
+    flex: 1;
+    @media screen and (max-width: 1024px) {
+      flex-wrap: wrap;
+    }
+    .tabs-flex {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      .large-screen-header {
+        @media screen and (min-width: 1024px) {
+          display: block;
+        }
+        @media screen and (max-width: 1024px) {
+          display: none;
+        }
+      }
+      .small-screen-header {
+        display: none;
+        @media screen and (max-width: 1024px) {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+      .tablist {
+        @media screen and (max-width: 1024px) {
+          display: none;
+        }
+      }
+      .content {
+        margin-top: 2rem;
+        .description {
+          margin-bottom: 2rem;
+          line-height: 2rem;
+          white-space: break-spaces;
+        }
+        .btn {
+          font-size: 1.125rem;
+          width: 19rem;
+        }
+        @media screen and (max-width: 1024px) {
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+}

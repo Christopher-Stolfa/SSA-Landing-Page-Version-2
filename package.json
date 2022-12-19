@@ -20,12 +20,17 @@
     "typescript": "^4.4.2"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.1",
+    "@mantine/hooks": "^5.9.4",
     "axios": "^0.27.2",
     "dotenv": "^16.0.3",
+    "graphql": "^16.6.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "react": "^18.2.0",
+    "react-cool-img": "^1.2.12",
     "react-dom": "^18.2.0",
+    "react-responsive-carousel": "^3.2.23",
     "sass": "^1.56.1",
     "web-vitals": "^2.1.0"
   },
