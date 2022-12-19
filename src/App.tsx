@@ -8,6 +8,7 @@ import {
   NewsAndEvents,
   Programs,
   SpitzerOath,
+  VideoPlayer,
 } from './sections';
 
 /**
@@ -24,6 +25,7 @@ const App = () => {
       <Programs />
       <SpitzerOath />
       <CreativeSpaces />
+      <VideoPlayer />
     </div>
   );
 };
