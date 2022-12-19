@@ -1,8 +1,15 @@
 import React from 'react';
 import styles from './App.module.scss';
 import { Button, IconButton } from './components/Buttons';
-import { CreativeSpaces, HeroCarousel, Jedi, NewsAndEvents, Programs } from './sections';
-  
+import {
+  CreativeSpaces,
+  HeroCarousel,
+  Jedi,
+  NewsAndEvents,
+  Programs,
+  SpitzerOath,
+} from './sections';
+
 /**
  * This is the root React component.
  *
@@ -15,6 +22,7 @@ const App = () => {
       <NewsAndEvents />
       <Jedi />
       <Programs />
+      <SpitzerOath />
       <CreativeSpaces />
     </div>
   );
