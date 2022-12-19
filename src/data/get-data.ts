@@ -60,6 +60,9 @@ export interface IPageData {
         undergraduate?: string;
         work?: string;
       };
+      videos?: {
+        video: string;
+      }[];
     };
   };
   events: {
@@ -149,6 +152,9 @@ const GET_PAGE_DATA = gql`
           statement
           undergraduate
           work
+        }
+        videos {
+          video
         }
       }
     }

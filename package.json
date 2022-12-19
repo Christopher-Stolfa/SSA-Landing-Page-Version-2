@@ -30,6 +30,7 @@
     "react": "^18.2.0",
     "react-cool-img": "^1.2.12",
     "react-dom": "^18.2.0",
+    "react-player": "^2.11.0",
     "react-responsive-carousel": "^3.2.23",
     "sass": "^1.56.1",
     "web-vitals": "^2.1.0"
