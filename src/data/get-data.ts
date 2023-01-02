@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 type TImage = {
-  link?: string;
-  altText?: string;
+  link: string;
+  altText: string;
 };
 
 type TTestomnial = { name: string; position: string; testimonial: string; image: TImage };

@@ -1,0 +1,16 @@
+.item {
+  padding: 0 0 1.5rem;
+}
+
+.dot-list {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  margin: 0 auto !important;
+  gap: 0.25rem;
+}
+
+.container {
+  max-width: 928px;
+  width: 100%;
+}
