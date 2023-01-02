@@ -1,11 +1,11 @@
 import { useQuery } from '@apollo/client';
 import React from 'react';
 import styles from './Programs.module.scss';
-import { Header } from '../components/Headers';
-import GET_PAGE_DATA, { IPageData } from '../data/get-data';
+import { Header } from '../../components/Headers';
+import GET_PAGE_DATA, { IPageData } from '../../data/get-data';
 import { uniqueId } from 'lodash';
-import { Button } from '../components/Buttons';
-import { programsArrow } from '../assets/svgs';
+import { Button } from '../../components/Buttons';
+import { programsArrow } from '../../assets/svgs';
 
 const Programs = () => {
   const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);

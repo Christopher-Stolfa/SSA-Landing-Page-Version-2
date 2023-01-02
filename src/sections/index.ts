@@ -1,5 +1,8 @@
 export { default as CreativeSpaces } from './CreativeSpaces/CreativeSpaces';
-export { default as HeroCarousel } from './HeroCarousel';
-export { default as Jedi } from './Jedi';
-export { default as Programs } from './Programs';
-export { default as NewsAndEvents } from './NewsAndEvents';
+export { default as HeroCarousel } from './HeroCarousel/HeroCarousel';
+export { default as Jedi } from './Jedi/Jedi';
+export { default as Programs } from './Programs/Programs';
+export { default as NewsAndEvents } from './NewsAndEvents/NewsAndEvents';
+export { default as SpitzerOath } from './SpitzerOath/SpitzerOath';
+export { default as VideoPlayer } from './VideoPlayer/VideoPlayer';
+export { default as Testimonials } from './Testimonials/Testimonials';

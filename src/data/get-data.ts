@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 type TImage = {
-  link?: string;
-  altText?: string;
+  link: string;
+  altText: string;
 };
 
 type TTestomnial = { name: string; position: string; testimonial: string; image: TImage };
@@ -60,6 +60,9 @@ export interface IPageData {
         undergraduate?: string;
         work?: string;
       };
+      videos?: {
+        video: string;
+      }[];
     };
   };
   events: {
@@ -149,6 +152,9 @@ const GET_PAGE_DATA = gql`
           statement
           undergraduate
           work
+        }
+        videos {
+          video
         }
       }
     }

@@ -1,0 +1,35 @@
+.root {
+  display: flex;
+  width: 271px;
+  height: 525px;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.25);
+  color: #333;
+  .content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 234px;
+    padding: 16px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    .testimonial {
+      font-family: Roboto, sans-serif;
+      font-size: 12px;
+      line-height: 150%;
+      font-weight: 500;
+    }
+    .person-info {
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+  }
+}
