@@ -5,3 +5,4 @@ export { default as Programs } from './Programs/Programs';
 export { default as NewsAndEvents } from './NewsAndEvents/NewsAndEvents';
 export { default as SpitzerOath } from './SpitzerOath/SpitzerOath';
 export { default as VideoPlayer } from './VideoPlayer/VideoPlayer';
+export { default as Testimonials } from './Testimonials/Testimonials';

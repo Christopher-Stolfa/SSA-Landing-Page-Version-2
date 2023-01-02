@@ -8,6 +8,7 @@ import {
   NewsAndEvents,
   Programs,
   SpitzerOath,
+  Testimonials,
   VideoPlayer,
 } from './sections';
 
@@ -22,6 +23,7 @@ const App = () => {
       <HeroCarousel />
       <NewsAndEvents />
       <Jedi />
+      <Testimonials />
       <Programs />
       <SpitzerOath />
       <CreativeSpaces />

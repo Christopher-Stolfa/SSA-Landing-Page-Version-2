@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client';
 import { uniqueId } from 'lodash';
 import moment from 'moment';
 import React from 'react';
-import NewsCard from '../../components/Cards/NewsCard';
+import { NewsCard } from '../../components/Cards/';
 import { Header } from '../../components/Headers';
 import GET_PAGE_DATA, { IPageData } from '../../data/get-data';
 import { formatDate } from '../../utils';
