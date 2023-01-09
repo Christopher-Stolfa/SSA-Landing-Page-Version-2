@@ -6,11 +6,11 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 interface IProps {
-  name: string;
-  position: string;
-  testimonial: string;
-  src: string;
-  alt: string;
+  name?: string;
+  position?: string;
+  testimonial?: string;
+  src?: string;
+  alt?: string;
   loading: boolean;
 }
 const PersonCard = ({ loading, name, position, testimonial, src, alt }: IProps) => {
@@ -21,12 +21,13 @@ const PersonCard = ({ loading, name, position, testimonial, src, alt }: IProps) 
         <div className={styles['content']}>
           <p className={styles['testimonial']}>
             <Skeleton count={5} />
+            <Skeleton width="20%" />
           </p>
           <div className={styles['person-info']}>
             <strong>
-              <Skeleton />
+              <Skeleton width="40%" />
             </strong>
-            <Skeleton />
+            <Skeleton width="60%" />
           </div>
         </div>
       </div>

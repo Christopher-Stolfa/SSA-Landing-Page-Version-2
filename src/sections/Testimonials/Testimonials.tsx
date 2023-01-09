@@ -7,6 +7,7 @@ import { CardCarousel } from '../../components/CardCarousel';
 import { uniqueId } from 'lodash';
 import { PersonCard } from '../../components/Cards';
 import { Button } from '../../components/Buttons';
+import { makeNumArray } from '../../utils';
 
 enum ELabels {
   'faculty',
@@ -17,6 +18,11 @@ const Testimonials = () => {
   const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);
   const [toggle, setToggle] = useState<ELabels>(ELabels.faculty);
   const isActive = (label: ELabels) => label === toggle;
+  const skeletonData = makeNumArray(4).map(() => ({
+    loading,
+    name: 'Loading Skelington...',
+    testimonial: 'Hello! Hello! Hello! I am the loading skelington from outer space :)',
+  }));
   const cardsData = () => {
     if (toggle === ELabels.faculty) return data?.page?.landingPage?.testimonials?.faculty;
     if (toggle === ELabels.students) return data?.page?.landingPage?.testimonials?.students;
@@ -74,7 +80,7 @@ const Testimonials = () => {
                 <Button
                   href={data?.page?.landingPage?.buttonUrls?.faculty}
                   className={styles['btn']}>
-                  {'MEET THE FACULTY & STAFF'}
+                  MEET THE FACULTY &amp; STAFF
                 </Button>
               </>
             )}
@@ -99,8 +105,13 @@ const Testimonials = () => {
             )}
           </div>
           <CardCarousel>
+            {(loading || error) &&
+              skeletonData?.map((dummyData) => (
+                <PersonCard key={uniqueId(dummyData?.name)} {...dummyData} />
+              ))}
             {cardsData()?.map((person) => (
               <PersonCard
+                loading={loading}
                 key={uniqueId(person?.name)}
                 name={person?.name}
                 position={person?.position}

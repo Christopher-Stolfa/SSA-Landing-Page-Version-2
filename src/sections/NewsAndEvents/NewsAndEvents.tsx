@@ -23,14 +23,9 @@ const NewsAndEvents = () => {
           <div>
             <Header as="h2">FEATURED NEWS</Header>
             <div className={styles['news-cards']}>
-              {loading &&
+              {(loading || error) &&
                 skeletonData.map((dummyData) => (
-                  <NewsCard
-                    loading
-                    key={uniqueId(dummyData?.title)}
-                    title={dummyData?.title}
-                    content={dummyData?.content}
-                  />
+                  <NewsCard {...dummyData} key={uniqueId(dummyData?.title)} />
                 ))}
               {data?.page?.landingPage?.featuredPostGroup?.map((post, i) => (
                 <NewsCard

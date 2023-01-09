@@ -47,7 +47,7 @@ const NewsCard = ({
             <Skeleton width="60%" />
           </h4>
           <p className={styles['content']}>
-            <Skeleton count={5} />
+            <Skeleton count={4} />
           </p>
         </div>
       </div>
