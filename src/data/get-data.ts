@@ -9,7 +9,6 @@ type TTestomnial = { name: string; position: string; testimonial: string; image:
 export interface IPageData {
   page: {
     landingPage?: {
-      heroDescription?: string;
       carousel?: {
         link?: string;
         altText?: string;
@@ -81,7 +80,6 @@ const GET_PAGE_DATA = gql`
   query getPageData {
     page(id: "https://dev-spitzer-arch.pantheonsite.io/landing-page/", idType: URI) {
       landingPage {
-        heroDescription
         carousel {
           link
           altText
