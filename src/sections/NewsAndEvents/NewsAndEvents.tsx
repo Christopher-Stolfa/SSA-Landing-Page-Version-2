@@ -5,13 +5,17 @@ import React from 'react';
 import { NewsCard } from '../../components/Cards/';
 import { Header } from '../../components/Headers';
 import GET_PAGE_DATA, { IPageData } from '../../data/get-data';
-import { formatDate } from '../../utils';
+import { formatDate, makeNumArray } from '../../utils';
 import { Button } from '../../components/Buttons';
 import styles from './NewsAndEvents.module.scss';
 
 const NewsAndEvents = () => {
   const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);
-
+  const skeletonData = makeNumArray(3).map(() => ({
+    loading,
+    title: 'Loading...',
+    content: 'Hi friend! I am the loading skeleton :)',
+  }));
   return (
     <div className={styles['root']}>
       <div className={styles['container']}>
@@ -19,6 +23,15 @@ const NewsAndEvents = () => {
           <div>
             <Header as="h2">FEATURED NEWS</Header>
             <div className={styles['news-cards']}>
+              {loading &&
+                skeletonData.map((dummyData) => (
+                  <NewsCard
+                    loading
+                    key={uniqueId(dummyData?.title)}
+                    title={dummyData?.title}
+                    content={dummyData?.content}
+                  />
+                ))}
               {data?.page?.landingPage?.featuredPostGroup?.map((post, i) => (
                 <NewsCard
                   key={uniqueId(`feat-post-${i}`)}
@@ -28,6 +41,7 @@ const NewsAndEvents = () => {
                   href={post?.post?.link}
                   src={post?.image?.link}
                   alt={post?.image?.altText}
+                  loading={loading}
                 />
               ))}
             </div>
