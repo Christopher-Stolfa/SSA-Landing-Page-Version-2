@@ -40,13 +40,14 @@ const NewsCard = ({
         <Skeleton height={176} />
         <div className={styles['card-body']}>
           <span className={styles['date']}>
-            <Skeleton />
+            <Skeleton width="30%" />
           </span>
           <h4 className={styles['title']}>
             <Skeleton />
+            <Skeleton width="60%" />
           </h4>
           <p className={styles['content']}>
-            <Skeleton count={3} />
+            <Skeleton count={5} />
           </p>
         </div>
       </div>
