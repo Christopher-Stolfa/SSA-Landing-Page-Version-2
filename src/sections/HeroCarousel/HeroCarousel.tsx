@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import styles from './HeroCarousel.module.scss';
 import { Carousel } from 'react-responsive-carousel';
 import { uniqueId } from 'lodash';
@@ -8,7 +8,6 @@ import { Button } from '../../components/Buttons';
 import IconButton, { IIconButtonProps } from '../../components/Buttons/IconButton';
 import { useQuery } from '@apollo/client';
 import GET_PAGE_DATA, { IPageData } from '../../data/get-data';
-import { useResizeObserver } from '@mantine/hooks';
 
 const socialMedia: IIconButtonProps[] = [
   {
@@ -39,12 +38,9 @@ const socialMedia: IIconButtonProps[] = [
 
 const HeroCarousel = () => {
   const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);
-  const [ref, rect] = useResizeObserver();
-  const heroHeight = rect?.height;
-
   return (
     <div className={styles['flex']}>
-      <div ref={ref} className={styles['hero']}>
+      <div className={styles['hero']}>
         <div className={styles['container']}>
           <h1 className={styles['h1-large']}>
             <span className={styles['color-yellow']}>NEW YORK CITY&apos;S</span> FLAGSHIP PUBLIC
@@ -108,20 +104,20 @@ const HeroCarousel = () => {
             SCHOOL FOR <span className={styles['color-yellow']}>ARCHITECTURE</span>
           </h1>
         </div>
-        <Carousel dynamicHeight={false} showArrows={true} showThumbs={false} autoPlay={false}>
-          {data?.page?.landingPage?.carousel?.map((item) => (
-            <img
-              key={uniqueId(item?.link)}
-              className={styles['img']}
-              loading="lazy"
-              src={item?.link}
-              placeholder={placeholderImg}
-              alt={item?.altText}
-              width="100%"
-              height={heroHeight}
-            />
-          ))}
-        </Carousel>
+        {!loading && !error && (
+          <Carousel dynamicHeight={false} showArrows={true} showThumbs={false} autoPlay={false}>
+            {data?.page?.landingPage?.carousel?.map((item, index) => (
+              <img
+                key={uniqueId(`carousel-${item?.link}-${index}`)}
+                className={styles['img']}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                src={item?.link}
+                placeholder={placeholderImg}
+                alt={item?.altText}
+              />
+            ))}
+          </Carousel>
+        )}
       </div>
     </div>
   );

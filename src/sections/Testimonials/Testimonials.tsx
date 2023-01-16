@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import styles from './Testimonials.module.scss';
 import { useQuery } from '@apollo/client';
 import GET_PAGE_DATA, { IPageData } from '../../data/get-data';
@@ -23,11 +23,11 @@ const Testimonials = () => {
     name: 'Loading Skelington...',
     testimonial: 'Hello! Hello! Hello! I am the loading skelington from outer space :)',
   }));
-  const cardsData = () => {
+  const cardsData = useMemo(() => {
     if (toggle === ELabels.faculty) return data?.page?.landingPage?.testimonials?.faculty;
     if (toggle === ELabels.students) return data?.page?.landingPage?.testimonials?.students;
     return [];
-  };
+  }, [data?.page?.landingPage?.testimonials, toggle]);
   const onFacultyClick = () => {
     setToggle(ELabels.faculty);
   };
@@ -109,7 +109,7 @@ const Testimonials = () => {
               skeletonData?.map((dummyData) => (
                 <PersonCard key={uniqueId(dummyData?.name)} {...dummyData} />
               ))}
-            {cardsData()?.map((person) => (
+            {cardsData?.map((person) => (
               <PersonCard
                 loading={loading}
                 key={uniqueId(person?.name)}

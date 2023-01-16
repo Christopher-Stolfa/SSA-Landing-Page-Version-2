@@ -1,5 +1,8 @@
 .item {
   padding: 0 0 1.5rem;
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
 }
 
 .dot-list {
