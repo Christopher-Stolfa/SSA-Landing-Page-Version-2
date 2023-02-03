@@ -49,11 +49,11 @@ const CardCarousel = ({ children = [] }: IProps) => {
       key="ssa-card-carousel-key"
       containerClass={styles['container']}
       itemClass={styles['item']}
-      dotListClass={styles['dot-list']}
+      // dotListClass={styles['dot-list']}
       responsive={responsive}
       arrows={true}
       swipeable={true}
-      showDots={true}
+      // showDots={true} // this seems to break live
       partialVisible={true}>
       {children}
     </Carousel>
