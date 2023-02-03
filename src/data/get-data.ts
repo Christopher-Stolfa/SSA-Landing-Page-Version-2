@@ -78,7 +78,7 @@ export interface IPageData {
 
 const GET_PAGE_DATA = gql`
   query getPageData {
-    page(id: "https://dev-spitzer-arch.pantheonsite.io/landing-page/", idType: URI) {
+    page(id: "https://live-spitzer-arch.pantheonsite.io/landing-page/", idType: URI) {
       landingPage {
         carousel {
           link

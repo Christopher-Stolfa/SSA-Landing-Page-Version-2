@@ -17,7 +17,7 @@ const client = new ApolloClient({
         return count * 1000 * Math.random();
       },
     }),
-    new HttpLink({ uri: process.env.PUBLIC_URL }),
+    new HttpLink({ uri: process.env.GRAPHQL_URI }),
   ]),
   credentials: 'same-origin',
 });
