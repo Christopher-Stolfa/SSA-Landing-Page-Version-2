@@ -3,8 +3,6 @@ import React from 'react';
 import styles from './Programs.module.scss';
 import { Header } from '../../components/Headers';
 import GET_PAGE_DATA, { IPageData } from '../../data/get-data';
-import { uniqueId } from 'lodash';
-import { Button } from '../../components/Buttons';
 import { programsArrow } from '../../assets/svgs';
 
 const Programs = () => {
@@ -17,7 +15,7 @@ const Programs = () => {
         <div className={styles['grid']}>
           {data?.page?.landingPage?.programs?.map((item) => (
             <a
-              key={uniqueId(item?.name)}
+              key={`program-button-${item?.name}-${item?.url}`}
               target="_blank"
               rel="noreferrer"
               className={styles['programs-btn']}

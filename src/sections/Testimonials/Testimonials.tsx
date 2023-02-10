@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import GET_PAGE_DATA, { IPageData } from '../../data/get-data';
 import { Header } from '../../components/Headers';
 import { CardCarousel } from '../../components/CardCarousel';
-import { uniqueId } from 'lodash';
+import { isEmpty } from 'lodash';
 import { PersonCard } from '../../components/Cards';
 import { Button } from '../../components/Buttons';
 import { makeNumArray } from '../../utils';
@@ -18,16 +18,17 @@ const Testimonials = () => {
   const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);
   const [toggle, setToggle] = useState<ELabels>(ELabels.faculty);
   const isActive = (label: ELabels) => label === toggle;
-  const skeletonData = makeNumArray(4).map(() => ({
+  const skeletonData = makeNumArray(4).map((a, i) => ({
     loading,
-    name: 'Loading Skelington...',
+    name: `Loading Skelington-${i}`,
     testimonial: 'Hello! Hello! Hello! I am the loading skelington from outer space :)',
   }));
   const cardsData = useMemo(() => {
-    if (toggle === ELabels.faculty) return data?.page?.landingPage?.testimonials?.faculty;
-    if (toggle === ELabels.students) return data?.page?.landingPage?.testimonials?.students;
+    if (toggle === ELabels.faculty) return data?.page?.landingPage?.testimonials?.faculty || [];
+    if (toggle === ELabels.students) return data?.page?.landingPage?.testimonials?.students || [];
     return [];
   }, [data?.page?.landingPage?.testimonials, toggle]);
+  const hasCardsData = !isEmpty(cardsData);
   const onFacultyClick = () => {
     setToggle(ELabels.faculty);
   };
@@ -104,23 +105,29 @@ const Testimonials = () => {
               </>
             )}
           </div>
-          <CardCarousel>
-            {(loading || error) &&
-              skeletonData?.map((dummyData) => (
-                <PersonCard key={uniqueId(dummyData?.name)} {...dummyData} />
+          {loading && !hasCardsData && (
+            <CardCarousel>
+              {(loading || error) &&
+                skeletonData?.map((dummyData) => (
+                  <PersonCard key={dummyData?.name} {...dummyData} />
+                ))}
+            </CardCarousel>
+          )}
+          {hasCardsData && (
+            <CardCarousel>
+              {cardsData?.map((person) => (
+                <PersonCard
+                  loading={loading}
+                  key={`person-${person?.name}`}
+                  name={person?.name}
+                  position={person?.position}
+                  src={person?.image?.link}
+                  alt={person?.image?.altText}
+                  testimonial={person?.testimonial}
+                />
               ))}
-            {cardsData?.map((person) => (
-              <PersonCard
-                loading={loading}
-                key={uniqueId(person?.name)}
-                name={person?.name}
-                position={person?.position}
-                src={person?.image?.link}
-                alt={person?.image?.altText}
-                testimonial={person?.testimonial}
-              />
-            ))}
-          </CardCarousel>
+            </CardCarousel>
+          )}
         </div>
       </div>
     </div>

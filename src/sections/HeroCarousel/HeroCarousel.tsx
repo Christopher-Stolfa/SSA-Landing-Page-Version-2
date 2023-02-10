@@ -1,7 +1,6 @@
 import React, { CSSProperties } from 'react';
 import styles from './HeroCarousel.module.scss';
 import { Carousel } from 'react-responsive-carousel';
-import { uniqueId } from 'lodash';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { placeholderImg } from '../../assets';
 import { Button } from '../../components/Buttons';
@@ -90,7 +89,7 @@ const HeroCarousel = () => {
           </a>
           <ul className={styles['btn-social-list']}>
             {socialMedia.map((socialProps: IIconButtonProps) => (
-              <li key={uniqueId(socialProps?.variant)}>
+              <li key={`social-icon-${socialProps?.variant}`}>
                 <IconButton {...socialProps} />
               </li>
             ))}
@@ -108,7 +107,7 @@ const HeroCarousel = () => {
           <Carousel dynamicHeight={false} showArrows={true} showThumbs={false} autoPlay={false}>
             {data?.page?.landingPage?.carousel?.map((item, index) => (
               <img
-                key={uniqueId(`carousel-${item?.link}-${index}`)}
+                key={`carousel-${item?.link}`}
                 className={styles['img']}
                 loading={index === 0 ? 'eager' : 'lazy'}
                 src={item?.link}

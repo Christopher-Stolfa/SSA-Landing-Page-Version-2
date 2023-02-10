@@ -1,5 +1,4 @@
 import { useQuery } from '@apollo/client';
-import { uniqueId } from 'lodash';
 import moment from 'moment';
 import React from 'react';
 import { NewsCard } from '../../components/Cards/';
@@ -11,9 +10,9 @@ import styles from './NewsAndEvents.module.scss';
 
 const NewsAndEvents = () => {
   const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);
-  const skeletonData = makeNumArray(3).map(() => ({
+  const skeletonData = makeNumArray(3).map((a, i) => ({
     loading,
-    title: 'Loading...',
+    title: `Loading...${i}`,
     content: 'Hi friend! I am the loading skeleton :)',
   }));
   return (
@@ -24,12 +23,10 @@ const NewsAndEvents = () => {
             <Header as="h2">FEATURED NEWS</Header>
             <div className={styles['news-cards']}>
               {(loading || error) &&
-                skeletonData.map((dummyData) => (
-                  <NewsCard {...dummyData} key={uniqueId(dummyData?.title)} />
-                ))}
+                skeletonData.map((dummyData) => <NewsCard {...dummyData} key={dummyData?.title} />)}
               {data?.page?.landingPage?.featuredPostGroup?.map((post, i) => (
                 <NewsCard
-                  key={uniqueId(`feat-post-${i}`)}
+                  key={`feat-post-${post?.post?.link}`}
                   title={post?.post?.title}
                   date={post?.post?.date}
                   content={post?.post?.content}
@@ -46,11 +43,13 @@ const NewsAndEvents = () => {
           <Header as="h2">UPCOMING EVENTS</Header>
           <ul className={styles['events-list']}>
             {data?.events?.edges
-              ?.filter((event, i) => moment() <= moment(event.node.eventEndDate))
+              ?.filter((event) => moment() <= moment(event.node.eventEndDate))
               ?.reverse()
               ?.slice(0, 5)
-              ?.map((event, i) => (
-                <li className={styles['event-list-item']} key={uniqueId(`event?.node?.title${i}`)}>
+              ?.map((event) => (
+                <li
+                  className={styles['event-list-item']}
+                  key={`event?.node?.title${event?.node?.link}`}>
                   <div className={styles['event-date']}>
                     {formatDate(event?.node?.eventStartDate, event?.node?.eventEndDate)}
                   </div>

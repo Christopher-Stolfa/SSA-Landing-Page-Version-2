@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import styles from './CardCarousel.module.scss';
 import Carousel, { ResponsiveType } from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
 
 interface IProps {
   children: ReactNode[];
@@ -46,15 +45,27 @@ const CardCarousel = ({ children = [] }: IProps) => {
   };
   return (
     <Carousel
-      key="ssa-card-carousel-key"
+      additionalTransfrom={0}
+      arrows
+      autoPlay={false}
+      centerMode={false}
       containerClass={styles['container']}
       itemClass={styles['item']}
-      // dotListClass={styles['dot-list']}
+      draggable
+      focusOnSelect={false}
+      keyBoardControl
+      minimumTouchDrag={80}
+      pauseOnHover
+      renderArrowsWhenDisabled={false}
+      renderButtonGroupOutside={false}
+      renderDotsOutside={false}
       responsive={responsive}
-      arrows={true}
-      swipeable={true}
-      // showDots={true} // this seems to break live
-      partialVisible={true}>
+      rewind={false}
+      rewindWithAnimation={false}
+      rtl={false}
+      showDots={false}
+      slidesToSlide={1}
+      swipeable>
       {children}
     </Carousel>
   );

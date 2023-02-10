@@ -4,7 +4,6 @@ import { Button } from '../../components/Buttons';
 import { TabsContext } from '../../contexts/TabsContext';
 import GET_PAGE_DATA, { IPageData } from '../../data/get-data';
 import { useQuery } from '@apollo/client';
-import { uniqueId } from 'lodash';
 
 const CreativeSpacesInfo = () => {
   const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);
@@ -39,7 +38,7 @@ const CreativeSpacesInfo = () => {
           <div className={styles['hours-title']}>Hours</div>
           <div className={styles['week-days']}>
             {scheduleItems?.map((item) => (
-              <div key={uniqueId(item?.name)} className={styles['day-time']}>
+              <div key={`schedule-item-${item?.name}`} className={styles['day-time']}>
                 <div>{item?.name}</div>
                 <div>{item?.time}</div>
               </div>
