@@ -1,8 +1,5 @@
 .item {
   padding: 0 0 1.5rem;
-  &:not(:last-child) {
-    margin-right: 1rem;
-  }
 }
 // turned this off as it was causing a crash on wordpress for some odd reason
 .dot-list {
