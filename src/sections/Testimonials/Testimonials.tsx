@@ -93,14 +93,15 @@ const Testimonials = () => {
                   shared global community.
                 </div>
                 <div className={styles['summary']}>
-                  Our professional B.Arch. and M.Arch. programs are shaped by the diversity of our
+                  Our professional and post professional programs are shaped by the diversity of our
                   students, the inventive research of our faculty, and by multidisciplinary
                   collaborations. We prepare students to become engaged designers and to apply an
                   expansive set of skills to address pressing social, cultural, environmental, and
                   professional challenges. With a rigorous foundation in the core competencies of
                   building design, history, theory, and technologies, and with an emphasis on agile
-                  thinking, the Architecture programs aim to educate the next generation of
-                  innovators redefining the role of the architect in the present and the future.
+                  thinking, the Architecture, Landscape Architecture, and Urban Design programs aim
+                  to educate the next generation of innovators redefining the role of the architect,
+                  landscape architect, and urban designer in the present and the future.
                 </div>
               </>
             )}
