@@ -43,7 +43,11 @@ const NewsAndEvents = () => {
           <Header as="h2">UPCOMING EVENTS</Header>
           <ul className={styles['events-list']}>
             {data?.events?.edges
-              ?.filter((event) => moment() <= moment(event.node.eventEndDate))
+              ?.filter((event) => {
+                const today = moment();
+                const eventDate = moment(event.node.eventEndDate);
+                return today.startOf('day') <= eventDate.endOf('day');
+              })
               ?.reverse()
               ?.slice(0, 5)
               ?.map((event) => (
