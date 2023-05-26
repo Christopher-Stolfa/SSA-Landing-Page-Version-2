@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
+import 'react-multi-carousel/lib/styles.css';
 import styles from './index.module.scss';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { ApolloClient, InMemoryCache, ApolloProvider, ApolloLink, HttpLink } from '@apollo/client';
 import { RetryLink } from '@apollo/client/link/retry';
 
@@ -18,7 +18,7 @@ const client = new ApolloClient({
         return count * 1000 * Math.random();
       },
     }),
-    new HttpLink({ uri: 'https://dev-spitzer-arch.pantheonsite.io/graphql' }),
+    new HttpLink({ uri: process.env.GRAPHQL_URI }),
   ]),
   credentials: 'same-origin',
 });
@@ -33,8 +33,3 @@ root.render(
     </ApolloProvider>
   </React.StrictMode>,
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

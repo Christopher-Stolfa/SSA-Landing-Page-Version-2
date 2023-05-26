@@ -4,7 +4,6 @@ import { Tab, TabArrows, TabList, TabPanel, TabPanels } from '../../components/T
 import Tabs from '../../components/Tabs/Tabs';
 import { Container } from '../../components/Container';
 import { Header } from '../../components/Headers';
-import { uniqueId } from 'lodash';
 import Img from 'react-cool-img';
 import { placeholderImg } from '../../assets';
 import { regexStripHtml } from '../../utils';
@@ -28,7 +27,7 @@ const CreativeSpaces = () => {
           <div className={styles['tabs-flex']}>
             <TabList className={styles['tablist']}>
               {data?.page?.landingPage?.creativeSpaces?.map(({ title }, i) => (
-                <Tab key={uniqueId(title)} id={i}>
+                <Tab key={`creative-space-tablist-${title}`} id={i}>
                   {title}
                 </Tab>
               ))}
@@ -36,7 +35,7 @@ const CreativeSpaces = () => {
             <TabPanels>
               {data?.page?.landingPage?.creativeSpaces?.map(
                 ({ title, description, image, moreInfoUrl }, i) => (
-                  <TabPanel key={uniqueId(title)} id={i}>
+                  <TabPanel key={`creative-space-tab-panel-${title}`} id={i}>
                     <span className={styles['small-screen-header']}>
                       <Header as="h4">{title}</Header>
                       <TabArrows size={data?.page?.landingPage?.creativeSpaces?.length || 0} />

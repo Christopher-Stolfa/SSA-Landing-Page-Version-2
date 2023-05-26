@@ -4,6 +4,9 @@ import { placeholderImg } from '../../assets';
 import Img from 'react-cool-img';
 import moment from 'moment';
 import { regexStripHtml } from '../../utils';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
 interface Props {
   title: string;
   date?: Date;
@@ -11,16 +14,45 @@ interface Props {
   src?: string;
   href?: string;
   alt?: string;
+  loading: boolean;
 }
 
 const defaultAlt = 'Card Image';
 
-const NewsCard = ({ title, date, content, href, alt, src = placeholderImg }: Props) => {
+const NewsCard = ({
+  loading = false,
+  title,
+  date,
+  content,
+  href,
+  alt,
+  src = placeholderImg,
+}: Props) => {
   const minChars = 145 - title.length;
   const isTruncated = content?.length > minChars;
   const contentRegex = useMemo(() => {
     return regexStripHtml(content);
   }, [content]);
+
+  if (loading) {
+    return (
+      <div className={styles['root']}>
+        <Skeleton height={176} />
+        <div className={styles['card-body']}>
+          <span className={styles['date']}>
+            <Skeleton width="30%" />
+          </span>
+          <h4 className={styles['title']}>
+            <Skeleton />
+            <Skeleton width="60%" />
+          </h4>
+          <p className={styles['content']}>
+            <Skeleton count={4} />
+          </p>
+        </div>
+      </div>
+    );
+  }
   return (
     <a className={styles['root']} target="_blank" rel="noreferrer" href={href}>
       <Img
