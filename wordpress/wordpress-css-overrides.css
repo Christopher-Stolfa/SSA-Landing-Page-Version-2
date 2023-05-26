@@ -1,0 +1,27 @@
+#container {
+  padding: 0 !important;
+  width: 100% !important;
+}
+#footer {
+  height: 285px !important;
+}
+html body {
+  padding: 0;
+  margin: 0;
+  overflow-y: inherit;
+}
+#wrapper {
+  background-image: unset !important;
+  height: auto !important;
+}
+#header-image-mobile {
+  display: none !important;
+}
+.img-responsive {
+  display: none !important;
+}
+@media screen and (max-width: 768px) {
+  #wrapper {
+    height: 3rem !important;
+  }
+}
