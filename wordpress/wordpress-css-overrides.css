@@ -8,7 +8,7 @@
 html body {
   padding: 0;
   margin: 0;
-  overflow-y: inherit !important;
+  overflow-y: auto !important;
   overflow-x: hidden !important;
 }
 #wrapper {
@@ -23,6 +23,11 @@ html body {
 }
 @media screen and (max-width: 768px) {
   #wrapper {
-    height: 3rem !important;
+    height: 7rem !important;
+  }
+}
+@media screen and (max-width: 1023px) {
+  #wrapper #header {
+    margin-top: 6.5rem !important;
   }
 }
