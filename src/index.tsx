@@ -6,7 +6,6 @@ import styles from './index.module.scss';
 import App from './App';
 import { ApolloClient, InMemoryCache, ApolloProvider, ApolloLink, HttpLink } from '@apollo/client';
 import { RetryLink } from '@apollo/client/link/retry';
-
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: ApolloLink.from([
@@ -18,7 +17,7 @@ const client = new ApolloClient({
         return count * 1000 * Math.random();
       },
     }),
-    new HttpLink({ uri: process.env.GRAPHQL_URI }),
+    new HttpLink({ uri: process.env.REACT_APP_GRAPHQL_URI }),
   ]),
   credentials: 'same-origin',
 });

@@ -78,7 +78,7 @@ export interface IPageData {
 
 const GET_PAGE_DATA = gql`
   query getPageData {
-    page(id: "https://ssa.ccny.cuny.edu/landing-page/", idType: URI) {
+    page(id: "${process.env.REACT_APP_WEBSITE_URL}", idType: URI) {
       landingPage {
         carousel {
           link
@@ -156,7 +156,7 @@ const GET_PAGE_DATA = gql`
         }
       }
     }
-    events(first: 50, where: { orderby: { field: EVENT_END_DATE, order: DESC } }) {
+    events(first: 50, where: { orderby: { field: EVENT_START_DATE, order: DESC } }) {
       edges {
         node {
           title
