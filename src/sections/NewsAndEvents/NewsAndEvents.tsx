@@ -13,7 +13,7 @@ const NewsAndEvents = () => {
   const skeletonData = makeNumArray(3).map((a, i) => ({
     loading,
     title: `Loading...${i}`,
-    content: 'Hi friend! I am the loading skeleton :)',
+    content: 'Spitzer school of architecture news and events',
   }));
   return (
     <div className={styles['root']}>
@@ -53,7 +53,7 @@ const NewsAndEvents = () => {
               ?.map((event) => (
                 <li
                   className={styles['event-list-item']}
-                  key={`event?.node?.title${event?.node?.link}`}>
+                  key={`${event?.node?.title}${event?.node?.link}`}>
                   <div className={styles['event-date']}>
                     {formatDate(event?.node?.eventStartDate, event?.node?.eventEndDate)}
                   </div>

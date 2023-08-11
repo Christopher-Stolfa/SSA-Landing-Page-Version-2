@@ -55,15 +55,7 @@ const NewsCard = ({
   }
   return (
     <a className={styles['root']} target="_blank" rel="noreferrer" href={href}>
-      <Img
-        style={{ objectFit: 'cover' }}
-        lazy
-        cache
-        src={src}
-        placeholder={placeholderImg}
-        alt={alt || title || defaultAlt}
-        height={176}
-      />
+      <Img lazy cache src={src} placeholder={placeholderImg} alt={alt || title || defaultAlt} />
       <div className={styles['card-body']}>
         <span className={styles['date']}>{moment(date).format('MMM D, YYYY').toString()}</span>
         <h4 className={styles['title']}>{title}</h4>
