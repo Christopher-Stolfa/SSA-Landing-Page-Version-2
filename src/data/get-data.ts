@@ -58,6 +58,12 @@ export interface IPageData {
         statement?: string;
         undergraduate?: string;
         work?: string;
+        instagram?: string;
+        youtube?: string;
+        facebook?: string;
+        linkedin?: string;
+        twitter?: string;
+        subscribe?: string;
       };
       videos?: {
         video: string;
@@ -150,6 +156,12 @@ const GET_PAGE_DATA = gql`
           statement
           undergraduate
           work
+          instagram
+          youtube
+          facebook
+          linkedin
+          twitter
+          subscribe
         }
         videos {
           video
