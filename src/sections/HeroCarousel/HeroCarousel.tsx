@@ -107,15 +107,22 @@ const HeroCarousel = () => {
           </h1>
         </div>
         {!loading && !error && (
-          <Carousel dynamicHeight={false} showArrows={true} showThumbs={false} autoPlay={false}>
+          <Carousel
+            key={`carousel-items-${data?.page?.landingPage?.carousel?.length}`}
+            dynamicHeight={false}
+            showArrows={true}
+            showThumbs={false}
+            interval={5000}
+            autoPlay={true}
+            infiniteLoop={true}>
             {data?.page?.landingPage?.carousel?.map((item, index) => (
               <img
                 key={`carousel-${item?.link}`}
                 className={styles['img']}
                 loading={index === 0 ? 'eager' : 'lazy'}
                 src={item?.link}
-                placeholder={placeholderImg}
                 alt={item?.altText}
+                onError={(e) => (e.currentTarget.src = placeholderImg)}
               />
             ))}
           </Carousel>
