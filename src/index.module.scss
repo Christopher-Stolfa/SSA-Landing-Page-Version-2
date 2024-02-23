@@ -1,7 +1,6 @@
-@use './stylesheets/modules/colors';
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Roboto+Condensed:400,700);
 .root {
-  background-color: colors.$cream;
+  background-color: #fff;
   height: 100%;
   width: 100%;
 }
