@@ -114,8 +114,8 @@ const HeroCarousel = () => {
                 className={styles['img']}
                 loading={index === 0 ? 'eager' : 'lazy'}
                 src={item?.link}
-                placeholder={placeholderImg}
                 alt={item?.altText}
+                onError={(e) => (e.currentTarget.src = placeholderImg)}
               />
             ))}
           </Carousel>
