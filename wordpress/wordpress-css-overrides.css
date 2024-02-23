@@ -31,3 +31,6 @@ html body {
     margin-top: 6.5rem !important;
   }
 }
+html {
+  overflow-x: hidden !important;
+}

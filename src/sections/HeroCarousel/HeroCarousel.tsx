@@ -8,35 +8,34 @@ import IconButton, { IIconButtonProps } from '../../components/Buttons/IconButto
 import { useQuery } from '@apollo/client';
 import GET_PAGE_DATA, { IPageData } from '../../data/get-data';
 
-const socialMedia: IIconButtonProps[] = [
-  {
-    href: 'https://instagram.com/whatsonatssa/',
-    variant: 'instagram',
-  },
-  {
-    href: 'https://www.youtube.com/channel/UCd2v8X2TCyQHA2Ww2EpfTXA',
-    variant: 'youtube',
-  },
-  {
-    href: 'https://www.facebook.com/spitzerschoolofarchitecture',
-    variant: 'facebook',
-  },
-  {
-    href: 'https://www.linkedin.com/school/spitzer-school-of-architecture-city-college-of-new-york-cuny/',
-    variant: 'linkedin',
-  },
-  {
-    href: 'https://twitter.com/whatsonatssa',
-    variant: 'twitter',
-  },
-  {
-    href: 'https://cuny.us4.list-manage.com/subscribe?u=21d6a2d10f897e4acb0de0db3&id=6281843555',
-    variant: 'mail',
-  },
-];
-
 const HeroCarousel = () => {
   const { data, loading, error } = useQuery<IPageData>(GET_PAGE_DATA);
+  const socialMedia: IIconButtonProps[] = [
+    {
+      href: data?.page?.landingPage?.buttonUrls?.instagram ?? '',
+      variant: 'instagram',
+    },
+    {
+      href: data?.page?.landingPage?.buttonUrls?.youtube ?? '',
+      variant: 'youtube',
+    },
+    {
+      href: data?.page?.landingPage?.buttonUrls?.facebook ?? '',
+      variant: 'facebook',
+    },
+    {
+      href: data?.page?.landingPage?.buttonUrls?.linkedin ?? '',
+      variant: 'linkedin',
+    },
+    {
+      href: data?.page?.landingPage?.buttonUrls?.twitter ?? '',
+      variant: 'twitter',
+    },
+    {
+      href: data?.page?.landingPage?.buttonUrls?.subscribe ?? '',
+      variant: 'mail',
+    },
+  ];
   return (
     <div className={styles['flex']}>
       <div className={styles['hero']}>
@@ -88,11 +87,15 @@ const HeroCarousel = () => {
             Request Information
           </a>
           <ul className={styles['btn-social-list']}>
-            {socialMedia.map((socialProps: IIconButtonProps) => (
-              <li key={`social-icon-${socialProps?.variant}`}>
-                <IconButton {...socialProps} />
-              </li>
-            ))}
+            {socialMedia?.map((socialProps: IIconButtonProps) => {
+              if (socialProps?.href?.length > 0) {
+                return (
+                  <li key={`social-icon-${socialProps?.variant}-${socialProps?.href}`}>
+                    <IconButton {...socialProps} />
+                  </li>
+                );
+              }
+            })}
           </ul>
         </div>
       </div>
@@ -104,15 +107,22 @@ const HeroCarousel = () => {
           </h1>
         </div>
         {!loading && !error && (
-          <Carousel dynamicHeight={false} showArrows={true} showThumbs={false} autoPlay={false}>
+          <Carousel
+            key={`carousel-items-${data?.page?.landingPage?.carousel?.length}`}
+            dynamicHeight={false}
+            showArrows={true}
+            showThumbs={false}
+            interval={5000}
+            autoPlay={true}
+            infiniteLoop={true}>
             {data?.page?.landingPage?.carousel?.map((item, index) => (
               <img
                 key={`carousel-${item?.link}`}
                 className={styles['img']}
                 loading={index === 0 ? 'eager' : 'lazy'}
                 src={item?.link}
-                placeholder={placeholderImg}
                 alt={item?.altText}
+                onError={(e) => (e.currentTarget.src = placeholderImg)}
               />
             ))}
           </Carousel>

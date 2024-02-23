@@ -159,6 +159,20 @@
   }
 }
 
+:global(.control-arrow) {
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  padding: 0 1rem !important;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+:global(.carousel .control-arrow.control-prev::before),
+:global(.carousel .control-arrow.control-next::before) {
+  border-width: 1rem !important;
+}
+
 @media screen and (max-width: 400px) {
   .btn-container {
     flex-direction: column;
